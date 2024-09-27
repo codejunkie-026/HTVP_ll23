@@ -1,0 +1,417 @@
+:root{
+  --bs-bg: #0000;
+}
+
+/* global */
+.body{
+    font-family: serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/*===============
+# section
+========================*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: #f0f4f8;
+}
+
+.section-title {
+  padding-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 5px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5c8eb0;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #ff8664;
+  margin: 4px 10px;
+}
+
+.section-title p {
+  margin: 0;
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #263d4d;
+}
+
+/****************
+ izzy 
+==================**********/
+/****************
+background 
+==============***********/
+.bgnd1{
+    background-image: url(../images/pexels-karolina-grabowska-7321723.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+/* others */
+.pg1btn{
+    color: black;
+    background: #ffffffa1;
+    outline: none;
+    text-decoration: none;
+}
+.pg1btn:hover{
+    color: rgb(0, 0, 0);
+    background: rgba(179, 212, 212, 0.425);
+}
+
+
+/* contact */
+/* background */
+.bgnd2{
+    background-image: url(../images/pexels-alesia-kozik-7796455.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+/* others */
+.bg-gradient{
+  background-color: rgba(11, 37, 37, 0.258);
+}
+
+
+/***********
+izzz catalogue 
+==================***********/
+.cover-container {
+  max-width: 42em;
+}
+#head{
+  text-decoration: none;
+  color: black;
+}
+/***********
+izzz Header 
+=====================****/
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, .25);
+}
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/*****
+izzies catalogue carousel
+==================*/
+.img1{
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.37)), url(../images/theordinary1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.img2{
+  background-image: linear-gradient(rgba(56, 50, 50, 0), rgba(0, 0, 0, 0.521)), url(../images/cerave1.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.img3{
+  background-image: linear-gradient(rgba(56, 50, 50, 0.251), rgba(0, 0, 0, 0.354)), url(../images/AA_A-isclinical-body-complex.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+/* CUSTOMIZE THE CAROUSEL*/
+/* Carousel base class */
+.carousel {
+    margin-bottom: 4rem;
+}
+ /* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+} 
+/* Declare heights because of positioning of img element */
+.carousel-item {
+    height: 39rem;
+}
+/* cat precaution */
+.precaution{
+  text-align: center;
+}
+.out{
+  outline: none;
+  text-decoration: none;
+}
+
+
+
+/*=================
+# izzies shelf section
+============================== */
+.vesitable .vesitable-item {
+  height: 100%;
+  transition: 0.5s;
+}
+
+.vesitable .vesitable-item:hover {
+  box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
+}
+
+.vesitable .vesitable-item .vesitable-img {
+  overflow: hidden;
+  transition: 0.5s;
+  border-radius: 10px 10px 0 0;
+}
+
+.vesitable .vesitable-item .vesitable-img img {
+  transition: 0.5s;
+}
+
+.vesitable .vesitable-item .vesitable-img img:hover {
+  transform: scale(1.2);
+}
+
+.vesitable .owl-stage {
+  margin: 50px 0;
+  position: relative;
+}
+
+.vesitable .owl-nav .owl-prev {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  color: var(--accent-color);
+  padding: 5px 25px;
+  border: 1px solid var(--bs-secondary);
+  border-radius: 20px;
+  transition: 0.5s;
+
+}
+
+.vesitable .owl-nav .owl-prev:hover {
+  background: var(--bs-secondary);
+  color: var(--bs-white);
+}
+
+.vesitable .owl-nav .owl-next {
+  position: absolute;
+  top: -8px;
+  right: 88px;
+  color: var(--accent-color);
+  padding: 5px 25px;
+  border: 1px solid var(--bs-secondary);
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.vesitable .owl-nav .owl-next:hover {
+  background: var(--bs-secondary);
+  color: var(--bs-white);
+}
+
+/*=======================
+izzies inventory
+============================*/
+.inventory-container{
+  max-width: 90%;
+  margin:5px auto;
+}
+
+.inventory-container .inventory-image{
+  columns:4 150px;
+  gap:5px;
+}
+
+.inventory-container .inventory-image img{
+  margin-bottom: 5px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.inventory-container .inventory-wrap{
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0);
+}
+.inventory-container .inventory-wrap::before{
+  content: "";
+  background: rgba(34, 34, 34, 0.6);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+.inventory-container .inventory-wrap img{
+  transition: all ease-in-out 0.3s;
+}
+.inventory-container .inventory-wrap .inventory-info{
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+}
+/*.inventory-container .inventory-wrap .inventory-info{
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 20px;
+}*/
+.inventory-container .inventory-wrap .inventory-info h4{
+  font-size: 15px;
+  color: #fff;
+  font-weight: 600;
+}
+.inventory-container .inventory-wrap .inventory-info p{
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+}
+.inventory-container .inventory-wrap .inventory-links{
+  text-align: center;
+  z-index: 4;
+}
+.inventory-container .inventory-wrap .inventory-links a{
+  color: #fff;
+  margin: 0 5px 0 0;
+  font-size: 28px;
+  display: inline-block;
+  transition: 0.3s;
+}
+.inventory-container .inventory-wrap .inventory-links a:hover{
+  color: #ff0000c0;
+}
+.inventory-container .inventory-wrap:hover::before{
+  opacity: 1;
+}
+.inventory-container .inventory-wrap:hover img{
+  transform: scale(1.2);
+}
+.inventory-container .inventory-wrap:hover .inventory-info{
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*=============
+footer
+============================*/
+#footer {
+  background: #090909;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 30px 0;
+}
+#footer h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  font-family: Haettenschweiler;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+#footer p {
+  font-size: 15;
+  font-style: italic;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+#footer .social-links {
+  margin: 0 0 40px 0;
+}
+#footer .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #7f7f7f;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+#footer .social-links a:hover {
+  background: #3f3f3f;
+  color: #fff;
+  text-decoration: none;
+}
+#footer .copyright {
+  margin: 0 0 5px 0;
+}
+#footer .credits {
+  font-size: 13px;
+}
+
+
