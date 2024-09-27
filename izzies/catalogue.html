@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Nyerhovwo.t, webdev & bootstrap contributors">
+    <meta name="generator" content="">
+    <title>IZZIES</title>
+
+    <!--links-->
+    <link rel="stylesheet" href="./assets/css/izzy.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/vendors/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="./assets/vendors/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/css/aos.css">
+    <link rel="stylesheet" href="./assets/vendors/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/vendors/glightbox/css/glightbox.min.css">
+
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+      </style>
+</head>
+
+<body class=" body">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column d-flex text-center text-dark">
+        <header class="mb-auto">
+          <div data-aos="fade-down" data-aos-duration="1000">
+            <h3 class="float-md-start mb-0 head"><a href="izzies.html" id="head">IZZIE'S™</a></h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+              <a class="nav-link text-dark" aria-current="page" href="izzies.html">Home</a>
+              <a class="nav-link active text-dark" href="catalogue.html">Catalogue</a>
+              <a class="nav-link text-dark" href="contact.html">Contact</a>
+              <a class="nav-link text-dark me-1" href="#"><i class="bi bi-person-circle"></i></a>
+              <a class="nav-link text-dark me-1" href="#"><i class="bi bi-bag-fill"></i></a>
+              <a class="nav-link text-dark" href="#"><i class="bi bi-heart"></i></a>
+            </nav>
+          </div>
+        </header>
+    </div>
+
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item img1 active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><!--<rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>--></svg>
+            <div class="container">
+              <div class="carousel-caption text-start text-dark">
+                <h4>New Collection.</h4>
+                <p class="opacity-75"><h1>The Ordinary</h1></p>
+                <p><a class="btn btn-lg btn-secondary" href="#">view catalouge</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item img2">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><!--<rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>--></svg>
+            <div class="container">
+              <div class="carousel-caption fw-bolder">
+                <h1>New Collection.</h1>
+                <p>CeraVe.</p>
+                <p><a class="btn btn-lg btn-secondary" href="#">view catalogue</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item img3">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h1>New Collection.</h1>
+                <p>iS Clinical.</p>
+                <p><a class="btn btn-lg btn-secondary" href="#">Browse gallery</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="row align-items-md-stretch m-1 mb-3">
+      <div class="">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>IMPORTANT</h2>
+          <p>
+            Please go through our compulsory guidelines on the do's and dont's that We are only held accountable for;
+          </p>
+          <a class="out" data-bs-toggle="offcanvas" href="#offcanvasGuide" role="button" aria-controls="offcanvasGuide">
+            <button class="btn btn-outline-secondary" type="button">Guidelines</button>
+          </a>
+          <a class="out" data-bs-toggle="offcanvas" href="#offcanvasWarning" role="button" aria-controls="offcanvasWarning">
+            <button class="btn btn-outline-secondary" type="button">Warning</button>
+          </a>    
+        </div>
+      </div>
+    </div>
+    <!--Guidelines OF-->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasGuide" aria-labelledby="offcanvasGuideLabel">
+      <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasGuideLabel">PLEASE NOTE!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+            Before purchasing any of the listed skin care items, please do keep in mind that; <br><br>
+            1. <u>Check the ingredients:</u> Ensure you browse the ingredient list and read them to avoid any potential allergen 
+            or irritants. <br>
+            2. <u>Research the brand:</u> Look into the brand's reputation, customer reiews, and certifications to ensure they are trust 
+            worthy. <br>
+            3. <u>Patch test:</u> Before applying a new product all over your face, do a patch test on a small area of your skin to 
+            chech for any adverse reactions. <br>
+            4. <u>Expiration date:</u> check the expiration date to ensure the product is still fresh and effective. <br>
+            5. <u>Consider your skin type:</u> Different products are formulated for different skin types, so choose one that 
+            suites your specific needs. <br> <br>
+            Remember, everyone's skin is unique, so what works for others may not work for you. it's always a good idea
+            to consult with a dermatologist if you have any specific concerns or questions.
+        </div>
+        <div class="mt-3">
+            <button class="btn btn-secondary" type="button">
+              Learn More
+            </button>
+        </div>
+      </div>
+    </div>
+    <!--Warning OF-->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWarning" aria-labelledby="offcanvasWarningLabel">
+      <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWarningLabel">WARNING!!!!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <p>Be aware of the do's and dont's of this site. We are only held accountable for;<br>
+            1.delivery delay <br>
+            2.delivery mixup <br>
+            3.Expired or unchecked goods(Not exactly a problem since goods will be checked before stocking and due delivery) <br>
+            <u>Note;</u> Do not buy skincare products you don't know and are'nt aware of thier uses and application, stick to what you're
+            used to or follow professional guidelines from legitimate sources <br>
+            <u>Warning!!!;</u> we are not responsible for irresponsible use of skincare, skincare mishaps from wrong research and other related
+            allergies and reactions, please do your Research. 
+          </p>
+        </div>
+        <!--<div class="mt-3">
+            <button class="btn btn-secondary" type="button">
+              Learn More
+            </button>
+        </div>-->
+      </div>
+    </div>
+
+    <!--izzy shelf section -->
+    <div class="container-fluid vesitable mt-5" id="shelves">
+      <div class="container">
+          <h1 data-aos="fade-down" data-aos-delay="200" class="display-4 mb-0 text-center">Shelf</h1>
+          <p data-aos="fade-down" data-aos-delay="400" class="px-3 text-center">A couple of our fresh in-shelf stocked cheese</p>
+          <div data-aos="zoom-out" data-aos-delay="1000" class="owl-carousel vegetable-carousel justify-content-center">
+              <div class="border border-warning rounded position-relative vesitable-item">
+                  <div class="vesitable-img">
+                      <img src="./assets/images/shelf/rougecheese.jpg" class="img-fluid w-100 rounded-top" alt="">
+                  </div>
+                  <div class="text-white bg-warning px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Blue</div>
+                  <div class="p-4 rounded-bottom">
+                      <h4>Rouge River</h4>
+                      <p>Rogue River Blue is produced seasonally each fall with the finest organic milk from
+                        fall...</p>
+                      <div class="d-flex justify-content-between flex-lg-wrap">
+                          <p class="text-dark fs-5 fw-bold mb-0">$79.99 / wheel</p>
+                          <a href="#" class="btn border border-warning rounded-pill px-3 text-warning"><i class="fa fa-shopping-bag me-2 text-warning"></i> Add to cart</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="border border-warning rounded position-relative vesitable-item">
+                  <div class="vesitable-img">
+                      <img src="./assets/images/shelf/beaufort2.jpg" class="img-fluid w-100 rounded-top" alt="">
+                  </div>
+                  <div class="text-white bg-warning px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Semi-hard</div>
+                  <div class="p-4 rounded-bottom">
+                      <h4>Beaufort D'ete</h4>
+                      <p>Beaufort is a distinctive French cheese made traditionally from...</p>
+                      <div class="d-flex justify-content-between flex-lg-wrap">
+                          <p class="text-dark fs-5 fw-bold mb-0">$85.99 / kg</p>
+                          <a href="#" class="btn border border-warning rounded-pill px-3 text-warning"><i class="fa fa-shopping-bag me-2 text-warning"></i> Add to cart</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="border border-warning rounded position-relative vesitable-item">
+                  <div class="vesitable-img">
+                      <img src="./assets/images/shelf/oldford.jpg" class="img-fluid w-100 rounded-top bg-light" alt="">
+                  </div>
+                  <div class="text-white bg-warning px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">semi-hard</div>
+                  <div class="p-4 rounded-bottom">
+                      <h4>Old Ford</h4>
+                      <p>raw goat's milk cheese made by Mary Holbrook of Britain's Sleight Farm..</p>
+                      <div class="d-flex justify-content-between flex-lg-wrap">
+                          <p class="text-dark fs-5 fw-bold mb-0">$46.99 / kg</p>
+                          <a href="#" class="btn border border-warning rounded-pill px-3 text-warning"><i class="fa fa-shopping-bag me-2 text-warning"></i> Add to cart</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="border border-warning rounded position-relative vesitable-item">
+                  <div class="vesitable-img">
+                      <img src="./assets/images/shelf/parmigiano.jpg" class="img-fluid w-100 rounded-top" alt="">
+                  </div>
+                  <div class="text-white bg-warning px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Hard</div>
+                  <div class="p-4 rounded-bottom">
+                      <h4>Parmigiano Reggiano</h4>
+                      <p>hard, dry cheese made from skimmed or partially skimmed cow's milk...</p>
+                      <div class="d-flex justify-content-between flex-lg-wrap">
+                          <p class="text-dark fs-5 fw-bold mb-0">$66.15 / kg</p>
+                          <a href="#" class="btn border border-warning rounded-pill px-3 text-warning"><i class="fa fa-shopping-bag me-2 text-warning"></i> Add to cart</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="border border-warning rounded position-relative vesitable-item">
+                  <div class="vesitable-img">
+                      <img src="./assets/images/shelf/gorau-glas.png" class="img-fluid w-100 rounded-top" alt="">
+                  </div>
+                  <div class="text-white bg-warning px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Soft Blue</div>
+                  <div class="p-4 rounded-bottom">
+                      <h4>Gorau glas</h4>
+                      <p>Gorau Glas cheese is a soft blue cheese made at Caws Gorau Glas farm with...</p>
+                      <div class="d-flex justify-content-between flex-lg-wrap">
+                          <p class="text-dark fs-5 fw-bold mb-0">$39.99 / Ibs</p>
+                          <a href="#" class="btn border border-warning rounded-pill px-3 text-warning"><i class="fa fa-shopping-bag me-2 text-warning"></i> Add to cart</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="border border-warning rounded position-relative vesitable-item">
+                  <div class="vesitable-img">
+                      <img src="./assets/images/shelf/whitestiltonwithapricotsthecheesebaryqg.png" class="img-fluid w-100 rounded-top" alt="">
+                  </div>
+                  <div class="text-white bg-warning px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Hard</div>
+                  <div class="p-4 rounded-bottom">
+                      <h4>White stilton</h4>
+                      <p>White Stilton cheese is a type of English cheese that is made from cow’s...</p>
+                      <div class="d-flex justify-content-between flex-lg-wrap">
+                          <p class="text-dark fs-5 fw-bold mb-0">$599.99 / Ibs</p>
+                          <a href="#" class="btn border border-warning rounded-pill px-3 text-warning"><i class="fa fa-shopping-bag me-2 text-warning"></i> Add to cart</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="border border-warning rounded position-relative vesitable-item">
+                  <div class="vesitable-img">
+                      <img src="./assets/images/shelf/pulecheese.jpg" class="img-fluid w-100 rounded-top" alt="">
+                  </div>
+                  <div class="text-white bg-warning px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Soft</div>
+                  <div class="p-4 rounded-bottom">
+                      <h4>Pule</h4>
+                      <p>Pule is a rare and expensive cheese made from Balkan donkey milk at Zasavica donkey reserve in Serbia...</p>
+                      <div class="d-flex justify-content-between flex-lg-wrap">
+                          <p class="text-dark fs-5 fw-bold mb-0">$600.99 / Ibs</p>
+                          <a href="#" class="btn border border-warning rounded-pill px-3 text-warning"><i class="fa fa-shopping-bag me-2 text-warning"></i> Add to cart</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="border border-warning rounded position-relative vesitable-item">
+                  <div class="vesitable-img">
+                      <img src="./assets/images/shelf/epoisses.jpg" class="img-fluid w-100 rounded-top" alt="">
+                  </div>
+                  <div class="text-white bg-warning px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">soft</div>
+                  <div class="p-4 rounded-bottom">
+                      <h4>Epoisses De Bourgogne</h4>
+                      <p>Epoisses de Bourgogne is a famous soft washed rind cheese....</p>
+                      <div class="d-flex justify-content-between flex-lg-wrap">
+                          <p class="text-dark fs-5 fw-bold mb-0">$23.99 / kg</p>
+                          <a href="#" class="btn border border-warning rounded-pill px-3 text-warning"><i class="fa fa-shopping-bag me-2 text-warning"></i> Add to cart</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    
+      
+    <div class="p-5 mb-4 border shadow rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+        <button class="btn btn-primary btn-lg" type="button">Example button</button>
+      </div>
+    </div>
+
+
+    <section>
+      <div class="inventory-container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>INVENTORY</h2>
+          <p>Check out what we have in-stock available at your fingertips</p>
+          <div class="button-group">
+            <h3>FILTER</h3>
+            <div id="filters" class="button-group filter-button-group">
+              <button class="button btn btn-outline-danger active" data-filter="*">Show all</button>
+              <button class="button btn btn-outline-danger" data-filter=".sunscreen">Sunscreen</button>
+              <button class="button btn btn-outline-danger" data-filter=".serum">Serum</button>
+              <button class="button btn btn-outline-danger" data-filter=".random">Random</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="inventory-image">
+
+          <div class="inventory-wrap box-item random" data-category="random">
+            <img src="./assets/images/inventory/inventory-1.jpg" alt="">
+            <div class="inventory-info">
+              <h4>Obagi MD</h4>
+              <p>Collection</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="inventory-wrap box-item sunscreen" data-category="sunscreen">
+            <img src="./assets/images/inventory/inventory-2.jpg" alt="">
+            <div class="inventory-info">
+              <h4>Summer Surprise</h4>
+              <p>Collection</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="inventory-wrap sunscreen" data-category="sunscreen">
+            <img src="./assets/images/inventory/inventory-3.jpeg" alt="">
+            <div class="inventory-info">
+              <h4>SuperGoop!</h4>
+              <p>Sunscreen</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="inventory-wrap serum" data-category="serum">
+            <img src="./assets/images/inventory/inventory-4.png" alt="">
+            <div class="inventory-info">
+              <h4>Dermalogica breakout clearing</h4>
+              <p>Serum</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="inventory-wrap serum" data-category="serum">
+            <img src="./assets/images/inventory/inventory-5.jpg" alt="">
+            <div class="inventory-info">
+              <h4>Augustinus Bader</h4>
+              <p>Collection</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="inventory-wrap serum" data-category="serum">
+            <img src="./assets/images/inventory/inventory-6.jpg" alt="">
+            <div class="inventory-info">
+              <h4>Amfore Pacific</h4>
+              <p>Collection</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="inventory-wrap random" data-category="random">
+            <img src="./assets/images/inventory/inventory-7.jpg" alt="">
+            <div class="inventory-info">
+              <h4>PCA Skin</h4>
+              <p>Collection</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="inventory-wrap serum" data-category="serum">
+            <img src="./assets/images/inventory/inventory-8.jpg" alt="">
+            <div class="inventory-info">
+              <h4>NIOD</h4>
+              <p>Collection</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="inventory-wrap sunscreen" data-category="sunscreen">
+            <img src="./assets/images/inventory/inventory-9.jpg" alt="">
+            <div class="inventory-info">
+              <h4>CeraVe</h4>
+              <p>Collection</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="inventory-wrap sunscreen" data-category="sunscreen">
+            <img src="./assets/images/inventory/inventory-10.jpg" alt="">
+            <div class="inventory-info">
+              <h4>Curology</h4>
+              <p>Collection</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="inventory-wrap random" data-category="random">
+            <img src="./assets/images/inventory/inventory-11.jpg" alt="">
+            <div class="inventory-info">
+              <h4>ONNE</h4>
+              <p>Collection</p>
+              <div class="inventory-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Add To Cart"><i class="bx bx-cart-alt"></i></a>
+                <a href="#" title="Save"><i class="bx bx-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======= inventory Section ======= --
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>INVENTORY</h2>
+          <p>Check out what we have in-stock available at your fingertips</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="assets/images/inventory/portfolio-1.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="assets/images/inventory/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="assets/images/inventory/portfolio-2.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="assets/images/inventory/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="assets/images/inventory/portfolio-3.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 2</h4>
+              <p>App</p>
+              <a href="assets/images/inventory/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img src="assets/images/inventory/portfolio-4.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 2</h4>
+              <p>Card</p>
+              <a href="assets/images/inventory/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="assets/images/inventory/portfolio-5.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <a href="assets/images/inventory/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="assets/images/inventory/portfolio-6.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <a href="assets/images/inventory/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img src="assets/images/inventory/portfolio-7.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 1</h4>
+              <p>Card</p>
+              <a href="assets/images/inventory/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img src="assets/images/inventory/portfolio-8.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 3</h4>
+              <p>Card</p>
+              <a href="assets/images/inventory/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="assets/images/inventory/portfolio-9.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="assets/images/inventory/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End inventory Section -->
+          
+
+
+
+    <footer id="footer">
+      <div class="container">
+        <h3 class="">IZZIES</h3>
+        <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+        <div class="social-links">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+        <div class="copyright">
+          &copy; Copyright <strong><span>IZZIES</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="#">Nobbit.t</a>
+        </div>
+      </div>
+    </footer>
+ 
+    <!--script-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/vendors/glightbox/js/glightbox.min.js"></script>
+    <script src="./assets/vendors/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/vendors/owlcarousel/owl.carousel.min.js"></script>
+    <script src="./assets/js/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!--main-->
+    <script src="/assets/js/izzies.js"></script>
+</body>
+</html>
+<!--<script>
+  (function() {
+  "use strict";
+
+  /**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
+
+  /**
+   * Easy event listener function
+   */
+  const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
+
+  /**
+   * Easy on scroll event listener 
+   */
+  const onscroll = (el, listener) => {
+    el.addEventListener('scroll', listener)
+  }
+
+  /**
+   * Navbar links active state on scroll
+   */
+  let navbarlinks = select('#navbar .scrollto', true)
+  const navbarlinksActive = () => {
+    let position = window.scrollY + 200
+    navbarlinks.forEach(navbarlink => {
+      if (!navbarlink.hash) return
+      let section = select(navbarlink.hash)
+      if (!section) return
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        navbarlink.classList.add('active')
+      } else {
+        navbarlink.classList.remove('active')
+      }
+    })
+  }
+  window.addEventListener('load', navbarlinksActive)
+  onscroll(document, navbarlinksActive)
+
+  /**
+   * Scrolls to an element with header offset
+   */
+  const scrollto = (el) => {
+    let header = select('#header')
+    let offset = header.offsetHeight
+
+    let elementPos = select(el).offsetTop
+    window.scrollTo({
+      top: elementPos - offset,
+      behavior: 'smooth'
+    })
+  }
+
+  /**
+   * Toggle .header-scrolled class to #header when page is scrolled
+   */
+  let selectHeader = select('#header')
+  if (selectHeader) {
+    const headerScrolled = () => {
+      if (window.scrollY > 100) {
+        selectHeader.classList.add('header-scrolled')
+      } else {
+        selectHeader.classList.remove('header-scrolled')
+      }
+    }
+    window.addEventListener('load', headerScrolled)
+    onscroll(document, headerScrolled)
+  }
+
+  /**
+   * Back to top button
+   */
+  let backtotop = select('.back-to-top')
+  if (backtotop) {
+    const toggleBacktotop = () => {
+      if (window.scrollY > 100) {
+        backtotop.classList.add('active')
+      } else {
+        backtotop.classList.remove('active')
+      }
+    }
+    window.addEventListener('load', toggleBacktotop)
+    onscroll(document, toggleBacktotop)
+  }
+
+  /**
+   * Mobile nav toggle
+   */
+  on('click', '.mobile-nav-toggle', function(e) {
+    select('#navbar').classList.toggle('navbar-mobile')
+    this.classList.toggle('bi-list')
+    this.classList.toggle('bi-x')
+  })
+
+  /**
+   * Mobile nav dropdowns activate
+   */
+  on('click', '.navbar .dropdown > a', function(e) {
+    if (select('#navbar').classList.contains('navbar-mobile')) {
+      e.preventDefault()
+      this.nextElementSibling.classList.toggle('dropdown-active')
+    }
+  }, true)
+
+  /**
+   * Hero carousel indicators
+   */
+  let heroCarouselIndicators = select("#hero-carousel-indicators")
+  let heroCarouselItems = select('#heroCarousel .carousel-item', true)
+
+  heroCarouselItems.forEach((item, index) => {
+    (index === 0) ?
+    heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
+      heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
+  });
+
+  /**
+   * Scrool with ofset on links with a class name .scrollto
+   */
+  on('click', '.scrollto', function(e) {
+    if (select(this.hash)) {
+      e.preventDefault()
+
+      let navbar = select('#navbar')
+      if (navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile')
+        let navbarToggle = select('.mobile-nav-toggle')
+        navbarToggle.classList.toggle('bi-list')
+        navbarToggle.classList.toggle('bi-x')
+      }
+      scrollto(this.hash)
+    }
+  }, true)
+
+  /**
+   * Scroll with ofset on page load with hash links in the url
+   */
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      if (select(window.location.hash)) {
+        scrollto(window.location.hash)
+      }
+    }
+  });
+
+  /**
+   * Porfolio isotope and filter
+   */
+  window.addEventListener('load', () => {
+    let portfolioContainer = select('.portfolio-container');
+    if (portfolioContainer) {
+      let portfolioIsotope = new Isotope(portfolioContainer, {
+        itemSelector: '.portfolio-item',
+        layoutMode: 'fitRows'
+      });
+
+      let portfolioFilters = select('#portfolio-flters li', true);
+
+      on('click', '#portfolio-flters li', function(e) {
+        e.preventDefault();
+        portfolioFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+
+        portfolioIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+      }, true);
+    }
+
+  });
+
+  /**
+   * Initiate portfolio lightbox 
+   */
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
+
+  /**
+   * Portfolio details slider
+   */
+  new Swiper('.portfolio-details-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+})()
+</script>-->
