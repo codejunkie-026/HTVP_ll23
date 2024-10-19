@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Type Finder</title>
+</head>
+<body class="bc">
+    <style>
+        .bc{
+            background-color: burlywood;
+        }
+        
+    </style>
+    <h1>Choose Your Brew!</h1>
+    <form action="http://127.0.0.1:5501/"> 
+    <fieldset>
+        <legend>What type of coffee do you usually order?</legend>
+        <label><input id="Espresso" type="radio" name="Espresso-Drip-Speciality-Cold-Other" value="Espresso" checked>Espresso-Based</label>
+        <label><input id="Drip" type="radio" name="Espresso-Drip-Speciality-Cold-Other" value="Drip">Drip coffee</label>
+        <label><input id="Speciality" type="radio" name="Espresso-Drip-Speciality-Cold-Other" value="Speciality">Speciality Coffee</label>
+        <label><input id="Cold" type="radio" name="Espresso-Drip-Speciality-Cold-Other" value="Cold">Cold Brew</label>
+        <label><input id="Other" type="radio" name="Espresso-Drip-Speciality-Cold-Other" value="Other">Other</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>How do you take your coffee?</legend>
+        <label><input id="Black" type="radio" name="Black-Milk-Sugar-Syrup-Combination" value="Blaack">Black</label>
+        <label><input id="Milk" type="radio" name="Black-Milk-Sugar-Syrup-Combination" value="Milk">With milk/cream</label>
+        <label><input id="Sugar" type="radio" name="Black-Milk-Sugar-Syrup-Combination" value="Sugar">With sugar/sweetner</label>
+        <label><input id="Syrup" type="radio" name="Black-Milk-Sugar-Syrup-Combination" value="Syrup" checked>With Flavoured Syrup</label>
+        <label><input id="Combination" type="radio" name="Black-Milk-Sugar-Syrup-Combination" value="Combination">Combination</label>
+    </fieldset>
+    
+    <fieldset>
+        <legend>What's your preferred coffee roast level?</legend>
+        <label><input id="Light" type="radio" name="Light-Medium-Dark-Espresso-No" value="Light">Light roast</label>
+        <label><input id="Medium" type="radio" name="Light-Medium-Dark-Espresso-No" value="Medium">Medium roast</label>
+        <label><input id="Dark" type="radio" name="Light-Medium-Dark-Espresso-No" value="Dark" checked>Dark roast</label>
+        <label><input id="Espresso" type="radio" name="Light-Medium-Dark-Espresso-No" value="Espresso">Espresso roast</label>
+        <label><input id="No" type="radio" name="Light-Medium-Dark-Espresso-No" value="No">No preference</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>How often do you drink coffee?</legend>
+        <label><input id="Daily" type="radio" name="Daily-Sevaral-Occasionally-Rarely" value="Daily">Daily</label>
+        <label><input id="Sevaral" type="radio" name="Daily-Sevaral-Occasionally-Rarely" value="Sevaral">Sevaral times a week</label>
+        <label><input id="Occasionally" type="radio" name="Daily-Sevaral-Occasionally-Rarely" value="Occasionally" checked>Occasionally</label>
+        <label><input id="Rarely" type="radio" name="Daily-Sevaral-Occasionally-Rarely" value="Rarely">Rarely</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>What flavour profile do you prefer in your coffee?</legend>
+        <label><input id="Fruity" type="radio" name="Fruity-Nutty-Choco-Smoky-Other" value="Fruity">Fruity</label>
+        <label><input id="Nutty" type="radio" name="Fruity-Nutty-Choco-Smoky-Other" value="Nutty" checked>Nutty</label>
+        <label><input id="Choco" type="radio" name="Fruity-Nutty-Choco-Smoky-Other" value="Choco">Chocolate</label>
+        <label><input id="Smoky" type="radio" name="Fruity-Nutty-Choco-Smoky-Other" value="Smoky">Smoky</label>
+        <label><input id="Other" type="radio" name="Fruity-Nutty-Choco-Smoky-Other" value="Other">Other</label>
+    </fieldset>
+    <input type="text" name="Username" placeholder="Username/Email" required>
+            <button type="submit">Submit</button>
+            <button type="reset">Retake</button>
+
+    </form>
+</body>
+</html>

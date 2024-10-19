@@ -1,0 +1,60 @@
+:root{
+    --bg-light: #ffff;
+    --bg-default: brown;
+    --text-main: red;
+    --text-color: rgb(255, 126, 126);
+}
+
+@font-face {
+    font-family: redkit;
+    src: url(../fonts/redkits/RedKits.otf);
+}
+@font-face {
+    font-family: crowy;
+    src: url(../fonts/qrowy_magical/Qrowy\ Magical.otf);
+}
+@font-face {
+    font-family: sunflower;
+    src: url(../fonts/rows_of_sunflowers/Rows\ of\ Sunflowers.ttf);
+}
+
+#madeline-preloader{
+    background: rgb(255, 255, 255) url(../loader/preloader-3.gif) no-repeat center center;
+    background-size: 10%;
+    height: 100vh;
+    width: 100%;
+    z-index: 11;
+    position: fixed;
+}
+
+body{
+    font-family: sunflower;
+    font-size: 1.9rem;
+}
+
+.madeline-cashout-header h2{
+    font-family: redkit;
+    font-size: 3rem;
+}
+.madeline-cashout-header p{
+    font-size: 1.7rem;
+}
+
+.madeline-cashout-sidebar h4{
+    color: var(--text-main);
+    font-size: 1.7rem;
+}
+.madeline-cashout-sidebar .badge{
+    background: var(--text-main);
+}
+
+.madeline-cashout-promo{
+    color: var(--text-main);
+}
+
+
+.madeline-cashout-footer ul li a{
+    outline: none;
+    text-decoration: none;
+    color: var(--text-main);
+}
