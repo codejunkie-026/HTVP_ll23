@@ -1,0 +1,768 @@
+/*====
+Root
+========*/
+:root{
+    --acent-main: #ffcd07;
+    --accent-bg: #ca8300;
+    --main-color: linear-gradient(to right, #ff8800b2, #ff2072);
+
+    --neutral: #f4f4f4;
+    --white: #ffffff; 
+    --black: #333333;
+
+}
+
+/*=====
+Body
+========*/
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*====== 
+preloader
+========================== */
+.webmed_bg{
+    background: linear-gradient(135deg, #a52a2a 0%, #f4d03f 100%);
+    min-height: 100vh;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+
+.loade{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.pulse-text{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 20px;
+    color: white;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.morph-loader {
+    width: 50px;
+    height: 50px;
+    background: #f1c407;
+    animation: morph 2s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+}
+
+@keyframes morph {
+    0%, 100% { 
+        border-radius: 50%;
+        transform: scale(1) rotate(0deg);
+    }
+    50% { 
+        border-radius: 10%;
+        transform: scale(0.8) rotate(180deg);
+        background: #7d1f1f;
+    }
+}
+
+
+/*====
+ai-chat
+========*/
+.aichat{
+    position: fixed;
+    z-index: 5;
+    bottom: 20px;
+    right: 10px;
+    background: var(--main-color);
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    border-radius: 20px;
+    color: white;
+    transition: ease-out .2;
+}
+@media(max-width: 990px){
+    .aichat{
+        padding: 15px 20px;
+    }
+}
+
+.aichat:hover{
+    box-shadow: rgb(90, 56, 84) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    color: white;
+    animation: normal;
+    animation: bounce 2s linear;
+}
+@keyframes bounce{
+    0%{
+        transform: translatey(-20px);
+        transform: rotate(-10deg);
+    }
+    15%{
+        transform: translatey(15px);
+    }
+    25%{
+        transform: rotate(10deg);
+    }
+    30%{
+        transform: rotate(-10deg);
+    }
+    35%{
+        transform: rotate(10deg);
+    }
+    40%{
+        transform: rotate(0deg);
+    }
+}
+
+
+/*===== 
+Navbar
+========*/
+.navigate{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0; 
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 12%;
+    transition: .5s;
+}
+.navigate.sticky{
+    padding: 10px 12% 30px;
+    background: rgba(255, 255, 255, 0.705);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding-top: 30px;
+}
+
+
+.logo{
+    text-decoration: none;
+    margin-right: 80px;
+    transition: all .5s ease;
+}
+.navigate .logo i{
+    font-size: 18px;
+    color: var(--neutral);
+    margin-right: 3px;
+}
+.navigate.sticky .logo i{
+    background: linear-gradient(to right, #a52a2a, #a67c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.navigate .logo i:hover{
+    color: var(--neutral);
+    transition: all .5s ease;
+}
+.navigate .logo span{
+    font-size: 1.1rem;
+    color: var(--neutral);
+    font-weight: 600;
+}
+.navigate.sticky .logo span{
+    background: linear-gradient(to right, #a52a2a, #a67c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.navigate .logo span:hover{
+    color: var(--acent-main);
+    transition: all .5s ease;
+}
+
+.navigate .header{
+    display: flex;
+    margin-bottom: 0px;
+}
+.navigate .header li{
+    list-style: none;
+    color: var(--neutral);
+}
+.navigate.sticky .header li{
+    background: linear-gradient(to right, #a52a2a, #a67c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.navigate .header a{
+    color: var(--text-color1);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 3px 0;
+    margin: 0px 5px;
+    transition: all .50s ease;
+}
+.navigate .header a:hover{
+    color: var(--acent-main);
+}
+.navigate .header a.active{
+    color: var(--acent-main);
+}
+
+
+.navigate .main{
+    display: flex;
+    align-items: center;
+}
+.navigate .main a{
+    margin-right: 25px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--neutral);
+    transition: all .5s ease;
+}
+.navigate.sticky .main a{
+    background: linear-gradient(to right, #a52a2a, #a67c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--black);
+}
+.navigate .main a:hover{
+    color: var(--acent-main);
+}
+.navigate #menu-icon{
+    font-size: 35px;
+    color: var(--accent-bg);
+    cursor: pointer;
+    z-index: 1001;
+    display: none;
+}
+@media (max-width: 1090px) {
+    .navigate #menu-icon{
+        display: block;
+        transition: 2s;
+    }
+}
+
+/*=====
+webmed Header
+========*/
+.webmed-header{
+    background: linear-gradient(rgba(0, 0, 0, 0.452), rgba(0, 0, 0, 0.808)), url('../img/header/hospital-ward-1338585_1920.jpg') no-repeat center;
+    background-size: cover;
+    top: 0px;
+    width: 100%;
+    height: 90vh;
+}
+.webmed-header .container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.webmed-header h{
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+.webmed-header h1{
+    font-size: 5rem;
+    background: linear-gradient(to left, #a52a2a, #f2c94c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    margin: 10px 0;
+    animation: animate-gradient 2s linear infinite;
+}
+@keyframes animate-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+.webmed-header h6{
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+}
+
+
+
+
+/*=====
+webmed Hero
+========*/  
+.webmed-hero{
+    max-width: 100rem;
+    padding: 50px;
+    border-radius: 10px;
+    background: #ffffff;
+    margin: auto;
+    position: relative;
+}
+.webmed-hero::after{
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top left, #ff677d 0%, #ff6f61 100% );
+  transform: translate3d(5, 20px, 10px) scale(0.95);
+  filter: blur(5px);
+  opacity: var(0.2);
+  transition: opacity 0.3s;
+}
+
+.webmed-hero .webmed-hero-info{
+    color: rgb(0, 0, 0);
+    padding: 20px;
+}
+.webmed-hero .webmed-hero-info .heading{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.webmed-hero .webmed-hero-info p{
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+.webmed-hero .webmed-hero-info input{
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+}
+.webmed-hero .webmed-hero-info .btn{
+    color: rgb(0, 0, 0);
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    border: 2px solid rgba(255, 0, 0, 0.247);
+    outline: none;
+    position: relative;
+    transition: .5s;
+}
+
+.webmed-hero .webmed-hero-info .btn:hover{
+    background: var(--main-color);
+    color: white;
+    animation: ease-in 3s;
+}
+
+
+
+/*=====
+webmed features
+========*/  
+.imgcon{
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+.imgcon1{
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+.imgcon:nth-child(4){
+    background: url('../img/features/feature-2.jpg') no-repeat center;
+    background-size: cover;
+}
+.imgcon:nth-child(6){
+    background: url('../img/features/feature-3.jpg') no-repeat center;
+    background-size: cover;
+}
+.imgcon:nth-child(8){
+    background: url('../img/features/feature-4.jpg') no-repeat center;
+    background-size: cover;
+}
+.imgcon:hover{
+    transform: scale(1.05);
+    transition: .5s;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.imgcon1:hover{
+    transform: scale(1.05);
+    transition: .5s;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.imgcon:active{
+    transform: scale(0.95);
+    transition: .1s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.imgcon1:active{
+    transform: scale(0.95);
+    transition: .1s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.wm-feature-block{
+    position: relative;
+    background: white;
+}
+.wm-feature-block::after{
+  content: "";
+  z-index: -3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top left, #ff677d 0%, #ff6f61 100% );
+  transform: translate3d(5, 20px, 10px) scale(0.95);
+  filter: blur(5px);
+  opacity: var(0.2);
+  transition: opacity 0.3s;
+}
+
+.wm-feature a{
+    z-index: 1;
+    position: relative;
+}
+.wm-feature a:hover{
+    color: white;
+}
+.wm-feature span{
+    background: var(--main-color);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.wm-feature .right{
+    height: 100%;
+    width: 0%;
+}
+.wm-feature a:hover .right{
+    height: 100%;
+    width: 100%;
+    transition: ease-in-out 0.3s;
+}
+
+
+
+/*=======
+webmed process
+===============*/
+.webmed-process-hero{
+    position: relative;
+    background: white;
+}
+.webmed-process-hero::before{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(-45deg, #ff3c00bd, #f8a3a0c5);
+    filter: blur(5px);
+    opacity: var(0.7);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+}
+.webmed-process-hero::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+
+.process-btn a{
+    border: 1px solid rgba(255, 0, 0, 0.151);
+    padding: 10px;
+}
+.process-btn a:hover{
+    background: var(--main-color);
+    color: white;
+    transition: .2s ease-in;
+}
+.wm-process{
+    height: 400px;
+    background: white;
+    position: relative;
+}
+.wm-process::after{
+  content: "";
+  z-index: -3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top left,  #a00119ce, #e6ba78, #ff2d2d);
+  transform: translate3d(5, 20px, 10px) scale(0.95);
+  filter: blur(5px);
+  opacity: var(0.2);
+  transition: opacity 0.3s;
+}
+
+
+
+
+/*====
+webmed whyus
+=============*/
+.wm-whyus{
+    height: 100%;
+}
+.wm-whyus-pod{
+    position: relative;
+    background: white;
+}
+.wm-whyus-pod::after{
+  content: "";
+  z-index: -3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top left, #ff677ece, #f9d6a0, #f7dc6f);
+  transform: translate3d(5, 20px, 10px) scale(0.95);
+  filter: blur(5px);
+  opacity: var(0.2);
+  transition: opacity 0.3s;
+}
+.wm-whyus-pod h1, h2, h3, h4, h5{
+    font-family: sans-serif;
+}
+
+
+
+/*=====
+webmed testimonials
+======================*/
+.owl-carousel .item{
+    height: 300px;
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.webmed-testimonial{
+    position: relative;
+    z-index: 3;
+    background: white;
+}
+.webmed-testimonial::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(-45deg, #ffb3ba 0%, #8fbfd8 100% );
+    transform: translate3d(0px, 20px, 0) scale(0.95);
+    filter: blur(20px);
+    opacity: var(0.7);
+    transition: opacity 0.3s;
+}
+.webmed-testimonial::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+.webmed-testimonial .testimg img{
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.webmed-testimonial .patient-info .testimg img{
+    height: 40px;
+    width: 40px;
+    margin: auto;
+}
+
+.box:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(-45deg, #ff3d00 0%, #0400ff 100% );
+    transform: translate3d(0px, 20px, 0) scale(0.95);
+    filter: blur(20px);
+    opacity: var(0.7);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+}
+
+/* 
+Prevents issues when the parent creates a stacking context
+*/
+.box::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+        
+
+
+
+/*=====
+webmed takeoff
+=================*/
+.webmed-takeoff{
+    color: rgb(0, 0, 0);
+}
+
+.webmed-takeoff-btn .btn{
+    padding: 9px 19px;
+    color: #000000;
+}
+.webmed-takeoff-btn .btn:hover{
+    color: #ffffff;
+    transition: .3s ease-in;
+}
+
+.mg-sqiglly{
+    background: var(--main-color);
+    filter: opacity(10);
+    position: relative;
+}
+
+.section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+    padding-top: 100px;
+}
+
+.curve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.curve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.curve svg {
+    position: relative;
+    display: block;
+    width: calc(131% + 1.3px);
+    height: 262px;
+}
+
+.curve .shape-fill {
+    fill: hsl(0, 0%, 100%);
+}
+
+/*========================
+  footer
+==========================*/
+.footer{
+    background: var(--main-bg);
+    color: var(--text-color1);
+    padding: 50px 0;
+}
+.footer h1{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.footer p{
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+.footer-info{
+    justify-content: center;
+}
+.footer-infoe a:hover{
+    text-decoration: underline;
+}
+.footer-info a{
+    margin: 0 10px;
+    color: var(--text-color1);
+    text-decoration: none;
+    transition: all .5s ease;
+}
+.footer-info a:hover{
+    color: var(--main-color);
+    text-decoration: underline;
+}
+.footer-info a i{
+    font-size: 1.5rem;
+}
+
+
+/*========================
+  Media Queries
+==========================*/
+@media (max-width: 768px) {
+    .footer .hstack {
+        flex-direction: column;
+    }
+    .footer .hstack a {
+        margin: 5px 0;
+    }
+}
+
+/*========================
+  Login & Register Page
