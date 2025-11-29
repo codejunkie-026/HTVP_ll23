@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>therez-viva</title>
+    <!-- favicon -->
+
+    <!-- vendors-->
+     <link rel="stylesheet" href="./assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+    <!-- main -->
+    <link rel="stylesheet" href="./assets/css/therez.css">
+</head>
+<body class="body">
+
+    <!-- checkout btn-->
+     <div class="checkout">
+        <a href="checkout.html"><i class="bi bi-bag"></i></a>
+     </div>
+
+    <!--
+    header-->
+    <div class="nav-contain z-3">
+        <div class="navbar navbar-expand-lg">
+            <div class="logo navbar-brand ms-2 text-white fw-bold fs-3">
+                <a href="">LogoHere</a>
+            </div>
+            <ul class="nav-link m-auto collapse navbar-collapse" id="navbarNav">
+                <li><a href="#">home</a></li>
+                <li><a href="#orderlist">orderlist</a></li>
+                <li><a href="#top-choice">topchoice</a></li>
+                <li><a href="#menu">menu</a></li>            
+                <li><a href="#contact">contact</a></li>
+                <li><a href="#location">location</a></li>              
+            </ul>    
+            <div class="profile-section">
+                <i class="bi bi-person-circle"></i>
+                <a href="">place an order</a>
+                <i class="bi bi-list" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></i>
+            </div>
+        </div>
+    </div>
+    <!--offcanvas-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">IN PROGRESS!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!--
+        <div>
+        Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+        </div>
+        <div class="dropdown mt-3">
+            
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            Dropdown button
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+        </div>-->
+    </div>
+    </div>
+    <div class="navbar-hero">
+        <div class="navbar-hero-text">
+            <em>therez-viva</em>
+            <p>we treat your appetite</p>
+        </div>
+    </div>
+
+    <!-- Section:Block -->  
+    <div class="container py-3 my-5 mt-5 text-center invisible">
+        block   
+    </div>
+
+
+    <!--
+    orderlist-->
+    <section id="orderlist" class="border rounded-3 shadow-lg my-3 m-2">
+        <div class="container">
+            <div class="container py-5">
+                <div class="therez-orderlist row g-4 align-items-center">
+                    <div data-aos="fade-up" data-aos-delay="700" class="col-lg-6">
+                        <div class="position-relative">
+                            <img src="./assets/img/order/macarons-1938420_1920.jpg" class="img-fluid w-100 rounded" alt="">
+                            <!--<div class="madeline-tag d-flex align-items-center justify-content-center rounded-circle position-absolute m-2" style="width: 140px; height: 140px; top: 0; left: 0;">
+                                <h1 style="font-size: 100px;">1</h1>
+                                <div class="d-flex flex-column">
+                                    <span class="h6 mb-0">50% off</span>
+                                    <span class="h3 mb-0">per cuo</span>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="500" class="col-lg-6 therez-orderlist-text">
+                        <div class="py-4">
+                            <h3 class="display-3">WAITLIST</h3>
+                            <i class="fw-normal display-3 text-dark mb-4">FrontDesk</i>
+                            <h3>Schedule</h3>
+                            <p>We are are open everyday except sundays.</p>
+                            <p>Morning shifts run from 6am-11am while, Afternoon shifts From 12am-5pm.</p>
+                            <h3>Order before arrival</h3>
+                            <p class="mb-4 text-dark">
+                                It is more convinient to make your order before arrival to avoid the due wait time before the order
+                                is fufilled, depending on what your order is the wait time varies so this is the best alternative we
+                                can offer as we are not held liable for any due hold-ups or tardiness. 
+                            </p>
+                            <a href="tel:+2347055962992" class="btn border-2 w-100 py-3 px-5">Place Order</a>
+                        </div>
+                    </div>         
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section:Block -->  
+    <div class="container py-3 my-5 mt-5 text-center invisible">
+        block   
+    </div>
+
+    <!--
+    top-choice-->
+    <section id="top-choice" data-aos="fade-down" data-aos-delay="500" class="therez-topchoice py-5 my-5">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item therez-carousel active">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/alexandra-tran-UkudQyyeovs-unsplash.jpg" alt="">
+                <div class="container">
+                  <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">Samosa</h1>
+                    <p class="fs-5">Prepared with care to meet your standards.</p>
+                    <p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item therez-carousel">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/american-heritage-chocolate-vdx5hPQhXFk-unsplash.jpg" alt="">
+                <div class="container">
+                  <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">Cake</h1>
+                    <p class="fs-5">Nothing beats a good slice of cake.</p>
+                    <p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item therez-carousel">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/habib-dadkhah-DjKPWvOD5GU-unsplash.jpg" alt="">
+                <div class="container">
+                  <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">SmallChops</h1>
+                    <p class="fs-5">A wonderful set of all your favourite condiments.</p>
+                    <p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item therez-carousel">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/keesha-s-kitchen-Yn065HfaXnE-unsplash.jpg" alt="">
+                <div class="container">
+                  <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">EggRoll</h1>
+                    <p class="fs-5">it just hits different.</p>
+                    <p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item therez-carousel">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/you-le-5wWAIfnx1rM-unsplash.jpg" alt="">
+                <div class="container">
+                  <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">SpringRoll</h1>
+                    <p class="fs-5">A bundle of surprise waiting to be unraveled.</p>
+                    <p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>-->
+        </div>
+    </section>
+    
+
+    <!--
+    menu-->
+    <section class="py-5 my-2 m-2" id="menu" data-aos="fade-down" data-aos-delay="500">
+        <div class="container-xxl py-5">
+            <div class="container menu">
+                <div class="text-center title">
+                    <h1 class="text-center">Our Menu<i class="bi bi-file"></i></h1>
+                    <h5 class="mb-5">Most Popular Items</h5>
+                </div>
+                <div class="tab-class text-center">
+                    <ul class="nav nav-pills mb-5 therez-menu-nav">
+                        <li class="nav-item">
+                            <a class="align-items-center text-start active" data-bs-toggle="pill" href="#tab-1">
+                                <div class="">
+                                    <!--<small class="text-body">Regular</small>-->
+                                    <h6 class="mt-n1 mb-0">Treats</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="align-items-center text-start" data-bs-toggle="pill" href="#tab-2">
+                                <div class="">
+                                    <!--<small class="text-body">Special</small>-->
+                                    <h6 class="mt-n1 mb-0">Drinks</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="align-items-center text-start" data-bs-toggle="pill" href="#tab-3">
+                                <div class="">
+                                    <!--<small class="text-body">Garnishes</small>-->
+                                    <h6 class="mt-n1 mb-0">Desserts</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="align-items-center text-start" data-bs-toggle="pill" href="#tab-4">
+                                <div class="">
+                                    <!--<small class="text-body">Extras</small>-->
+                                    <h6 class="mt-n1 mb-0">Cake</h6>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content therez-menu-tab">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/beverages/cappuccino.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Eggroll</span>
+                                                <span class="price">₦500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/beverages/Cold Brew.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>MeatPie</span>
+                                                <span class="price">₦700</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/beverages/Drip coffee.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>SmallChops</span>
+                                                <span class="price">₦3500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/beverages/expresso.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Banana Bread</span>
+                                                <span class="price">₦1200</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/beverages/Hot Chocolate.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Chin-Chin</span>
+                                                <span class="price">₦500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/beverages/Iced Tea.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Doughnut</span>
+                                                <span class="price">₦600</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/beverages/latte.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Assorted Meat</span>
+                                                <span class="price">₦300</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/beverages/Macchiato.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>SpringRoll</span>
+                                                <span class="price">₦800</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/beverages/Mocha.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Samosa</span>
+                                                <span class="price">₦500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div id="tab-2" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/special/Caramel Macchiato.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Parfait</span>
+                                                <span class="price">₦3500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/special/Keto Vanilla Chai Tea Latte – Low Carbs.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Zobo</span>
+                                                <span class="price">₦400</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/special/Peppermint Matcha Latte, a matcha green tea powder latte with a fresh minty flavor_ A cozy and antioxidant-rich pick-me-up that's ready in under 10 minutes!.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>CockTail</span>
+                                                <span class="price">₦1200</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/special/Authentic Masala Chai Recipe - Spiced Indian Milk Tea.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>FruityJuice</span>
+                                                <span class="price">₦700</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/special/Frappé de moka o mocha frappuccino (fácil y rápido).jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Youghurt</span>
+                                                <span class="price">₦800</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/special/Easy Homemade Caramel Frappuccino.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>SOftDrinks</span>
+                                                <span class="price">₦500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/garnish/Easy 3-Min Mascarpone Frosting.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/garnish/Cold ice cubes_.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/garnish/DIY Caramel Syrup for Coffee _ Cook Like A Champion.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/garnish/How to Make French Vanilla Coffee Creamer - CopyKat Recipes.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/garnish/Fructose Malabsorption_ A Beginner's Guide to Treatment.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/garnish/Sugar Role in Macarons.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/garnish/Eating Like This Could Give You The Best Skin Of Your Life.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/garnish/The Shortcut Caramel Sauce You’ll Want to Put on Everything.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-4" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/snacks/Vegan Croissants - Carlo Cao.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Brownies</span>
+                                                <span class="price">₦850</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/snacks/Classic Quiche Lorraine.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Cupcake</span>
+                                                <span class="price">₦1500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/snacks/Classic Waffles.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>SpongeCake</span>
+                                                <span class="price">₦2500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/snacks/Creamy Fruit Salad.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>ChocholateCake</span>
+                                                <span class="price">₦4000</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../Cafe menu/assets/img/snacks/Damn Good Paleo Chocolate Chunk Tahini Cookies _ Ambitious Kitchen.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>CustomOrder</span>
+                                                <span class="price"><a href="tel:+2347055962992"><i class="bi bi-telephone text-danger"></i></a></span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!---
+    event booking-->
+    <section class="m-2 border therez-event-cta rounded-4 d-flex flex-column justify-content-center align-items-center">
+        <div class="py-5 p-5 text-center text-dark">
+            <h2 class="mb-4 fw-bolder">Book Your Event with Us</h2>
+            <p class="mb-4">Celebrate your special occasions with our delightful treats and exceptional service. Contact us to plan your event today!</p>
+            <a href="" class="btn btn-light fw-bolder">Book Now</a>
+        </div>
+        <div class="owl-carousel owl-theme">
+            <div class="item p-5 bg-warning"><h4>1</h4></div>
+            <div class="item p-5 bg-warning"><h4>2</h4></div>
+            <div class="item p-5 bg-warning"><h4>3</h4></div>
+            <div class="item p-5 bg-warning"><h4>4</h4></div>
+            <div class="item p-5 bg-warning"><h4>5</h4></div>
+            <div class="item p-5 bg-warning"><h4>6</h4></div>
+            <div class="item p-5 bg-warning"><h4>7</h4></div>
+            <div class="item p-5 bg-warning"><h4>8</h4></div>
+            <div class="item p-5 bg-warning"><h4>9</h4></div>
+            <div class="item p-5 bg-warning"><h4>10</h4></div>
+            <div class="item p-5 bg-warning"><h4>11</h4></div>
+            <div class="item p-5 bg-warning"><h4>12</h4></div>
+        </div>
+    </section>
+
+    <!--
+    vendor wholesale purchase-->
+    <section class="m-2 border therez-vendor-cta rounded-4 d-flex justify-content-center align-items-center">
+        <div class="py-5 p-5 text-center text-dark">
+            <h2 class="mb-4 fw-bolder">Become a Vendor Partner</h2>
+            <p class="mb-4">Join our vendor program and enjoy exclusive benefits, bulk pricing, and dedicated support for your business needs.</p>
+            <a href="" class="btn btn-light fw-bolder">Contact Sales</a>
+        </div>
+    </section>
+
+    <!-- Section:Block -->  
+    <div class="container py-3 my-5 mt-5 text-center invisible">
+        block   
+    </div>
+
+    <!--
+    contact -->
+    <section id="contact" class="my-2 m-2" data-aos="fade-up" data-aos-delay="500">
+        <div class="therez-contact text-center text-dark">
+            <div class="p-5">
+                <h2 class="mb-4 fw-bolder">Contact Us</h2>
+                <p class="mb-4">Have questions, feedback, or just want to say hello? We'd love to hear from you! Reach out to us through any of the following ways:</p>
+                <div class="therez-contact-info vstack text-center justify-content-center">
+                    <div class="me-4">
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>+234 705 596 2992</span>
+                    </div>
+                    <div class="me-4">
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>info@therez-viva.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container border-none rounded-4 p-4 therez-contact-form w-100">
+                <form action="bjbenjamin791@gmail.com" class="">
+                    <div class="mb-3 w-100 text-start">
+                        <input type="text" class="form-control w-100" id="name" placeholder="Your Name">
+                    </div>
+                    <div class="mb-3 text-start">
+                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                    </div>
+                    <div class="mb-3 text-start">
+                        <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn w-100 fw-bolder">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section:Block -->  
+    <div class="container py-3 my-5 mt-5 text-center invisible">
+        block   
+    </div>
+
+    <!--
+    location-->
+    <div id="location" class="mb-4 mt-4 invisible">
+        hello
+    </div>
+    <section  class="m-3">
+        <div class="row"> 
+            <div class="col-lg-7 therez-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126841.3131214559!2d3.201558682246467!3d6.548048387065876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1764042522365!5m2!1sen!2sng" \ allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-lg-5">
+                <div class="text-dark text-center d-flex flex-column justify-content-center align-items-center h-100">
+                    <h2 class="mb-4 fw-bolder">Visit Our Branches</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section:Block -->  
+    <div class="container py-3 my-5 mt-5 text-center invisible">
+        block
+    </div>
+
+    <!--
+    bottom-cta-->
+    <section class="m-2 therez-bottom-cta rounded-4 d-flex justify-content-center align-items-center">
+        <div class="py-5 p-5 text-center text-light">
+            <p>interested in our delicious treats? hop on to our menu and place an order now!</p>
+            <a href="" class="btn btn-light fw-bolder">order now</a>
+        </div>
+    </section>
+
+    <!--
+    footer-->
+    <footer class="footer p-5">
+        <div class="row">
+            <div class="col-lg-6 footer-text-main">
+                <b>therez-viva</b>
+                <p>tasty treats here to feed your cravings and brighten your day with a happy smile</p>
+                <div class="footer-text-main-icon">
+                    <i class="bi bi-twitter-x"></i>
+                    <i class="bi bi-instagram"></i>
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-whatsapp"></i>
+                </div>
+            </div>
+            <div class="col-lg-2 p-3 footer-text">
+                <b>product</b>
+                <p>menu</p>
+                <p>top choice</p>
+                <p>review</p>
+                <p>survey</p>
+            </div>
+            <div class="col-lg-2 p-3 footer-text">
+                <b>resoures</b>
+                <p>pricing</p>
+                <p>delivery</p>
+                <p>support</p>
+            </div>
+            <div class="col-lg-2 p-3 footer-text">
+                <b>company</b>
+                <p>contact</p>
+                <p>about</p>
+                <p>patners</p>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex footer-honours">
+            <em>©2025 therez-viva.all rights reserved</em>
+            <div>
+            <a href="">privacy policy</a>
+            <a href="">terms of service</a>
+            <a href="">cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- vendors -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./assets/vendor/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        })
+    </script>
+    
+    <!-- main -->
+    <script src="./assets/js/therez.js"></script>
+</body>
+</html>
