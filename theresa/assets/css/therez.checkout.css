@@ -1,0 +1,40 @@
+/*======
+footer
+==========*/
+.footer{
+    color: var(--bs-negative);
+}
+.footer-text-main b{
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+.footer-text-main p{
+    text-transform: capitalize;
+    margin-top: 1em;
+    max-width: 500px;
+}
+.footer-text-main-icon i{
+    font-size: 1.5rem;
+    margin: 0px 5px;
+}
+.footer-text{
+    margin-bottom: 2em;
+}
+.footer-text b{
+    font-weight: 900;   
+    margin-top: 2em; 
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+.footer-text p{
+    margin-bottom: 5px;
+}
+.footer-honours{
+    justify-content: space-between;
+    
+}
+.footer-honours a{
+    color: var(--bs-negative);
+    margin: 0px 10px;
+}
