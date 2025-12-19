@@ -929,6 +929,7 @@ therez float-animate
     right: 33%;
     height: 152px;
     z-index: 1;
+    display: none;
     animation: jiggle 6s ease-in-out infinite;
 }
 /*float5*/
@@ -1208,9 +1209,10 @@ therez float-animate
         position: absolute;
         width: auto;
         top: 7em;
-        right: 3%;
-        height: 82px;
+        right: 1%;
+        height: 52px;
         z-index: 1;
+        display: none;
         animation: jiggle 6s ease-in-out infinite;
     }
     /*float5*/
@@ -1556,3 +1558,4 @@ footer
     }
 
 }
+
