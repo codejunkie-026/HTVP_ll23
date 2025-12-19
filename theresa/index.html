@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="therez-viva is a fast-food restaurant that offers a variety of delicious meals and drinks to satisfy your cravings.">
+    <meta name="keywords" content="therez-viva, fast-food, restaurant, meals, drinks, order online, food delivery">
+    <title>therez-viva</title>
+    <!-- favicon -->
+    <link rel="icon" href="./assets/vendor/favicon_io/therez32x32.png" type="image/x-icon">
+
+    <!-- vendors-->
+    <link rel="stylesheet" href="./assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+    <!-- main -->
+    <link rel="stylesheet" href="./assets/css/therez.css?v=<?php echo time(); ?>">
+
+    <!-- custom -->
+    <style>
+        :root{
+            --bs--light: white;
+            --bs--negative: black;
+            --bs--orange: rgb(255, 102, 0);
+            --bs--orange-subtle: rgba(255, 81, 0, 0.637);
+        }
+
+        .cart-icon {
+            position: fixed;
+            z-index: 999;
+            cursor: pointer;
+            right: 20px;
+            bottom: 30px;
+            border: 1px solid var(--bs--orange);
+            border-radius: 50%;
+            padding: 5px 10px;
+            color: var(--bs--orange);
+            font-size: 24px;
+        }
+        @media (max-width: 500px){
+            .cart-icon{
+                right: 10px;
+                bottom: 10px;
+                font-size: 18px;
+                padding: 7px 10px;
+            }
+            .checkout{
+                right: 5px;
+                bottom: 7px;
+                font-size: 15px;
+                padding: 10px 13px;
+                z-index: 10;
+            }
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--bs--orange);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /*
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }*/
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item-title {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart-btn {
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            margin: 50px auto;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #7f8c8d;
+        }
+
+        .checkout-title {
+            color: #2c3e50;
+            font-weight: 900;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-info h4 {
+            color: #000000ff;
+            font-size: 15px;
+            font-weight: bolder;
+            margin-bottom: 5px;
+        }
+
+        .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .quantity-btn {
+            background: var(--bs--orange);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .quantity {
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .remove-btn {
+            background: white;
+            color: rgb(255, 0, 0);
+            border: 1px solid red;
+            padding: 5px 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            text-align: right;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .total-amount {
+            font-size: 24px;
+            color: var(--bs--orange);
+            font-weight: bold;
+        }
+
+        .checkout-btn {
+            background: var(--bs--orange);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .remove-btn {
+                padding: 3px 6px;
+                font-size: 10px; 
+            }
+            .quantity-btn {
+                width: 15px;
+                height: 15px;
+                font-size: 7px;
+                font-weight: bold;
+            }
+            .cart-total {
+                text-align: right;
+                font-size: 14px;
+            }
+            .total-amount {
+                font-size: 20px;
+            }
+        }
+        @media (max-width: 500px){
+            .cart-icon{
+                right: 10px;
+                bottom: 10px;
+                font-size: 18px;
+                padding: 7px 10px;
+            }
+            .checkout{
+                right: 5px;
+                bottom: 7px;
+                font-size: 15px;
+                padding: 10px 13px;
+                z-index: 10;
+            }
+        }
+    </style>
+</head>
+<body class="body">
+
+    <!--
+    loader--
+    <div class="loader-bg">
+        <div class="loader">
+            <img src="./assets/img/logo/black.png" alt="">
+        </div>
+    </div>-->
+
+
+    <!-- checkout btn-->
+    <div class="modal" id="checkoutModal">
+    <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 class="checkout-title">Your Order</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <h3>Total: <span class="total-amount" id="totalAmount">₦0.00</span></h3>
+                <button class="checkout-btn" id="finalCheckoutBtn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+ 
+
+
+    <section id="navbar"></section>
+    <!--
+    header-->
+    <div class="nav-contain z-3">
+        <div class="navbar navbar-expand-lg">
+            <div class="logo navbar-brand ms-2 text-white fw-bold fs-3">
+                <img src="./assets/img/logo/therez-logo.png" alt="" class="glitch">
+            </div>
+            <ul class="nav-link m-auto collapse navbar-collapse" id="navbarNav">
+                <li><a href="#navbar">home</a></li>
+                <li><a href="#orderlist">orderlist</a></li>
+                <li><a href="#top-choice">topchoice</a></li>
+                <li><a href="#menu">menu</a></li>            
+                <li><a href="#contact">contact</a></li>
+                <li><a href="#location">location</a></li>              
+            </ul>    
+            <div class="profile-section">
+                <a href="tel:+2347078427018">place an order</a>
+                <i class="bi bi-list" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></i>
+            </div>
+        </div>
+    </div>
+    <!--offcanvas-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <!--<div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">IN PROGRESS!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>-->
+    <div class="offcanvas-body">
+        <!--
+        <div>
+        Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+        </div>-->
+        <ul class="">
+            <li class="navbar-item"><a href="#navbar">home</a></li>
+            <li class="navbar-item"><a href="#orderlist">orderlist</a></li>
+            <li class="navbar-item"><a href="#top-choice">top-choice</a></li>
+            <li class="navbar-item"><a href="#menu">menu</a></li>
+            <li class="navbar-item"><a href="#contact">contact</a></li>
+            <li class="navbar-item"><a href="#location">location</a></li>
+        </ul>
+        <div class="offfloat"></div>
+        <div class="offfloat1"></div>
+        <div class="offfloat2"></div>
+        <div class="offfloat3"></div>
+    </div>
+    <div class="offcanvas-footer">
+    </div>
+    </div>
+    <div class="navbar-hero">
+        <div class="navbar-hero-text">
+            <em>therez-viva</em>
+            <p>we treat your appetite.</p>
+        </div>
+    </div>
+
+
+    <!-- Section:Block -->  
+    <div class="container py-3 my-5 mt-5 text-center invisible">
+        block   
+    </div>
+    <div class="item-float1">
+        <div class="float-circle1"></div>
+        <div class="float-img">
+            <img src="./assets/img/float/samosa.png" class="" alt="">
+        </div>
+        <div class="float-circle2"></div>
+        <div class="float-circle3"></div>
+    </div>
+
+
+    <!--
+    orderlist-->
+    <section class="mb-5 invisible" id="orderlist">
+        block
+    </section>
+    <section class="orderlist-main rounded-3 shadow-lg my-3 m-2">
+        <div class="container">
+            <div class="container py-5">
+                <div class="therez-orderlist row g-4 align-items-center">
+                    <div data-aos="fade-up" data-aos-delay="700" class="col-lg-6">
+                        <div class="position-relative">
+                            <img src="./assets/img/order/aneta-voborilova-aFqKIFZ-Idg-unsplash.jpg" class="img-fluid w-100 rounded" alt="">
+                            <!--<div class="madeline-tag d-flex align-items-center justify-content-center rounded-circle position-absolute m-2" style="width: 140px; height: 140px; top: 0; left: 0;">
+                                <h1 style="font-size: 100px;">1</h1>
+                                <div class="d-flex flex-column">
+                                    <span class="h6 mb-0">50% off</span>
+                                    <span class="h3 mb-0">per cuo</span>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="500" class="col-lg-6 therez-orderlist-text">
+                        <div class="py-4">
+                            <h3 class="display-3">WAITLIST</h3>
+                            <div class="item-float2">
+                                <div class="float-img">
+                                    <img src="./assets/img/float/meatpie.png" alt="">
+                                </div>
+                            </div>
+                            <i class="fw-normal display-3 text-dark mb-4">FrontDesk</i>
+                            <h3>Schedule</h3>
+                            <p class="fw-bold">We are are open everyday except sundays.</p>
+                            <p class="fw-bold">Morning shifts run from 6am-11am while, Afternoon shifts From 12am-5pm.</p>
+                            <h3>Order before arrival</h3>
+                            <p class="mb-4 text-dark fw-bold">
+                                It is more convinient to make your order before arrival to avoid the due wait time before the order
+                                is fufilled, depending on what your order is the wait time varies so this is the best alternative we
+                                can offer as we are not held liable for any due hold-ups or tardiness. 
+                            </p>
+                            <a href="tel:+2347078427018" class="btn border-2 w-100 py-3 px-5">Place Order</a>
+                        </div>
+                    </div>         
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="item-float3">
+        <div class="float-img">
+            <img src="./assets/img/float/samosa2.png" class="" alt="">
+        </div>
+        <div class="float-circle"></div>
+        <div class="float-img2">
+            <img src="./assets/img/float/doughnut.png" class="" alt="">
+        </div>
+        <div class="float-circle2"></div>
+    </div>
+
+    <!-- Section:Block -->  
+    <div class="container py-3 my-5 mt-5 text-center invisible">
+        block   
+    </div>
+
+
+    <!--
+    top-choice-->
+    <section class="invisible" id="top-choice">
+        block
+    </section>
+
+     
+    <div data-aos="fade-down" data-aos-delay="500" class="therez-topchoice py-5 mt-5">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            </div>
+            <div class="carousel-inner">
+            <div class="carousel-item therez-carousel active">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/alexandra-tran-UkudQyyeovs-unsplash.jpg" alt="">
+                <div class="container">
+                <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">Samosa</h1>
+                    <p class="">Prepared with care to meet your standards.</p>
+                    <!--<p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>-->
+                </div>
+                </div>
+            </div>
+            <div class="carousel-item therez-carousel">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/american-heritage-chocolate-vdx5hPQhXFk-unsplash.jpg" alt="">
+                <div class="container">
+                <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">Cake</h1>
+                    <p class="">Nothing beats a good slice of cake.</p>
+                    <!--<p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>-->
+                </div>
+                </div>
+            </div>
+            <div class="carousel-item therez-carousel">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/habib-dadkhah-DjKPWvOD5GU-unsplash.jpg" alt="">
+                <div class="container">
+                <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">SmallChops</h1>
+                    <p class="">A wonderful set of all your favourite condiments.</p>
+                    <!--<p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>-->
+                </div>
+                </div>
+            </div>
+            <div class="carousel-item therez-carousel">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/keesha-s-kitchen-Yn065HfaXnE-unsplash.jpg" alt="">
+                <div class="container">
+                <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">EggRoll</h1>
+                    <p class="">it just hits different.</p>
+                    <!--<p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>-->
+                </div>
+                </div>
+            </div>
+            <div class="carousel-item therez-carousel">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/you-le-5wWAIfnx1rM-unsplash.jpg" alt="">
+                <div class="container">
+                <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">SpringRoll</h1>
+                    <p class="">A bundle of surprise waiting to be unraveled.</p>
+                    <!--<p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>-->
+                </div>
+                </div>
+            </div>
+            <div class="carousel-item therez-carousel">
+                <div class="gradient"></div>
+                <img class="image-fluid" src="./assets/img/topchoice/alcoholic-beverages-1845295_1920.jpg" alt="">
+                <div class="container">
+                <div class="carousel-caption therez-bottom text-start">
+                    <h1 class="fw-bolder">CockTails</h1>
+                    <p class="">Customer meets variety, we offer you so many flavours to explore.</p>
+                    <!--<p><a class="topchoice-btn btn btn-lg" href="#menu">Order</a></p>-->
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>    
+    </div>
+
+    <section class="custom-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" class="wave-svg wave-top" preserveAspectRatio="none" viewBox="0 0 1440 320"><path class="wave-path" fill="#000000ff" fill-opacity="1" 
+    d="M0,96L20,112C40,128,80,160,120,154.7C160,149,200,107,240,112C280,117,320,171,360,202.7C400,235,440,245,480,224C520,203,560,149,600,128C640,107,680,117,720,117.3C760,117,800,107,840,128C880,149,920,203,960,192C1000,181,1040,107,1080,101.3C1120,96,1160,160,1200,192C1240,224,1280,224,1320,202.7C1360,181,1400,139,1420,117.3L1440,96L1440,0L1420,0C1400,0,1360,0,1320,0C1280,0,1240,0,1200,0C1160,0,1120,0,1080,0C1040,0,1000,0,960,0C920,0,880,0,840,0C800,0,760,0,720,0C680,0,640,0,600,0C560,0,520,0,480,0C440,0,400,0,360,0C320,0,280,0,240,0C200,0,160,0,120,0C80,0,40,0,20,0L0,0Z"></path></svg>
+    
+        
+    <!-- Checkout Btn -->
+    <div class="cart-icon" id="cartIcon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+    <div class="item-float4">
+        <div class="float-circle"></div>
+        <div class="float-circle2"></div>
+        <div class="float-circle3"></div>
+        <div class="float-img">
+            <img src="./assets/img/float/doughnut2.png" class="" alt="">
+        </div>
+        <div class="float-img2">
+            <img src="./assets/img/float/breadbasket.png" class="" alt="">
+        </div>
+    </div>
+    <!--
+    menu-->
+    <section class="py-5 m-2" id="menu" data-aos="fade-down" data-aos-delay="500">
+        <div class="container-xxl py-5">
+            <div class="container menu">
+                <div class="text-center title z-2">
+                    <h1 class="text-center">Our Menu<i class="bi bi-journal-text"></i></h1>
+                    <h5 class="mb-5">Most Popular Items</h5>
+                </div>
+                <div class="tab-class text-center">
+                    <ul class="nav nav-pills mb-5 therez-menu-nav">
+                        <li class="nav-item">
+                            <a class="align-items-center text-start active" data-bs-toggle="pill" href="#tab-1">
+                                <div class="">
+                                    <!--<small class="text-body">Regular</small>-->
+                                    <h6 class="mt-n1 mb-0">Treats</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="align-items-center text-start" data-bs-toggle="pill" href="#tab-2">
+                                <div class="">
+                                    <!--<small class="text-body">Special</small>-->
+                                    <h6 class="mt-n1 mb-0">Drinks</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <!--<li class="nav-item">
+                            <a class="align-items-center text-start" data-bs-toggle="pill" href="#tab-3">
+                                <div class="">
+                                    <!--<small class="text-body">Garnishes</small>--
+                                    <h6 class="mt-n1 mb-0">Desserts</h6>
+                                </div>
+                            </a>
+                        </li>-->
+                        <li class="nav-item">
+                            <a class="align-items-center text-start" data-bs-toggle="pill" href="#tab-4">
+                                <div class="">
+                                    <!--<small class="text-body">Extras</small>-->
+                                    <h6 class="mt-n1 mb-0">Cake</h6>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content therez-menu-tab">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="1" data-name="EggRoll" data-price="500"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/eggroll.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Eggroll</span>
+                                                <span class="item-price price">₦500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="2" data-name="MeatPie" data-price="700" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/meatpie.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">MeatPie</span>
+                                                <span class="item-price price">₦700</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="3" data-name="SmallChops" data-price="3500" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/smallchops.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">SmallChops</span>
+                                                <span class="item-price price">₦3500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="4" data-name="Banana Bread" data-price="1200" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/bananabread.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Banana Bread</span>
+                                                <span class="item-price price">₦1200</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="5" data-name="Chin-Chin" data-price="500" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/chinchin.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Chin-Chin</span>
+                                                <span class="item-price price">₦500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="6" data-name="Doughnut" data-price="600" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/doughnut.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Doughnut</span>
+                                                <span class="item-price price">₦600</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="7" data-name="SpringRoll" data-price="800" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/springroll.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">SpringRoll</span>
+                                                <span class="item-price price">₦800</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="8" data-name="Samosa" data-price="500" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/samosa.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Samosa</span>
+                                                <span class="item-price price">₦500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div id="tab-2" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="9" data-name="Parfait" data-price="3500" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/parfait.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Parfait</span>
+                                                <span class="item-price price">₦3500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="10" data-name="Zobo" data-price="400" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/zobo.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Zobo</span>
+                                                <span class="item-price price">₦400</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="11" data-name="CockTail" data-price="1200" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/cocktail.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">CockTail</span>
+                                                <span class="item-price price">₦1200</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="12" data-name="FruityJuice" data-price="700" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/fruitjuice.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">FruityJuice</span>
+                                                <span class="item-price price">₦700</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="13" data-name="Youghurt" data-price="800" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/youghurt.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Youghurt</span>
+                                                <span class="item-price price">₦800</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="14" data-name="SoftDrinks" data-price="500" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/fanta.jpg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">SoftDrinks</span>
+                                                <span class="item-price price">₦500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!--<div id="tab-3" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../assets/img/garnish/Easy 3-Min Mascarpone Frosting.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../assets/img/garnish/Cold ice cubes_.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../assets/img/garnish/DIY Caramel Syrup for Coffee _ Cook Like A Champion.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../assets/img/garnish/How to Make French Vanilla Coffee Creamer - CopyKat Recipes.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../assets/img/garnish/Fructose Malabsorption_ A Beginner's Guide to Treatment.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../assets/img/garnish/Sugar Role in Macarons.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../assets/img/garnish/Eating Like This Could Give You The Best Skin Of Your Life.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="../assets/img/garnish/The Shortcut Caramel Sauce You’ll Want to Put on Everything.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>?????</span>
+                                                <span class="price">₦</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div id="tab-4" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="15" data-name="Brownies" data-price="850" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/brownies.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Brownies</span>
+                                                <span class="item-price price">₦850</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="16" data-name="Cupcake" data-price="1500" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/cupcake.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">Cupcake</span>
+                                                <span class="item-price price">₦1500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="17" data-name="SpongeCake" data-price="2500" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/spongecake.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">SpongeCake</span>
+                                                <span class="item-price price">₦2500</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <a class="add-to-cart-btn" data-id="18" data-name="ChocholateCake" data-price="4000" href="#"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/chocholateecake.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span class="item-title">ChocholateCake</span>
+                                                <span class="item-price price">₦4000</span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <a href="Madeline-cashout.html"><img class="flex-shrink-0 img-fluid rounded" src="./assets/img/menu/question.jpeg" alt="" style="width: 80px;"></a>
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>CustomOrder</span>
+                                                <span class="price"><a href="tel:+2347055962992"><i class="bi bi-telephone text-danger"></i></a></span>
+                                            </h5>
+                                            <small class="fst-italic"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Modal -->
+
+
+    <div class="item-float5">
+        <div class="float-img">
+            <img src="./assets/img/float/meatpie2.png" class="" alt="">
+        </div>
+    </div>
+
+
+    <!---
+    event booking-->
+    <section class="m-2 therez-event rounded-4 d-flex flex-column justify-content-center align-items-center">
+        <div class="py-5 p-5 therez-event-header text-center text-dark">
+            <h2 class="mb-4 fw-bolder">Book Your Event with Us</h2>
+            <p class="mb-4">Celebrate your special occasions with our delightful treats and exceptional service. Contact us to plan your event today!</p>
+            <a href="tel:+2347078427018" class="btn btn-light fw-bolder">Book Now</a>
+        </div>
+        <div class="owl-carousel owl-theme">
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img1.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img2.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img3.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img44.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img5.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img6.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img7.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img8.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img9.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img10.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img11.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="item contain">
+                <div class="gradient"></div>
+                <img src="./assets/img/event/img12.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
+    </section>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300" stroke="none"><path fill="#000000ff" fill-opacity="1" 
+    d="M0,96L20,112C40,128,80,160,120,154.7C160,149,200,107,240,112C280,117,320,171,360,202.7C400,235,440,245,480,224C520,203,560,149,600,128C640,107,680,117,720,117.3C760,117,800,107,840,128C880,149,920,203,960,192C1000,181,1040,107,1080,101.3C1120,96,1160,160,1200,192C1240,224,1280,224,1320,202.7C1360,181,1400,139,1420,117.3L1440,96L1440,320L1420,320C1400,320,1360,320,1320,320C1280,320,1240,320,1200,320C1160,320,1120,320,1080,320C1040,320,1000,320,960,320C920,320,880,320,840,320C800,320,760,320,720,320C680,320,640,320,600,320C560,320,520,320,480,320C440,320,400,320,360,320C320,320,280,320,240,320C200,320,160,320,120,320C80,320,40,320,20,320L0,320Z"></path></svg>
+    </section>
+
+    <div class="item-float6">
+        <div class="float-circle"></div>
+        <div class="float-img">
+            <img src="./assets/img/float/springroll.png" class="" alt="">
+        </div>
+    </div>
+
+    <!--
+    vendor supply--->
+    <section  class="container-fluid py-5">
+        <div class="row shadow bg-black rounded-3 m-2 p-5"> 
+            <div class="col-lg-5">
+                <div class="text-light text-center d-flex flex-column justify-content-center align-items-center h-100">
+                    <h2 class="mb-4 fw-bolder">Need A Supplier?</h2>
+                    <p>Your food business deserves a partner you can count on. Stop worrying about inconsistent quality, late deliveries, and sky-high costs. We supply the reliable, 
+                        high-quality goods you need to keep your kitchen and business running smoothly.
+                    </p>
+                    <a href="tel:+2347055962992" class="btn btn-light fw-bolder mb-4">Contact Us</a>
+                </div>
+            </div>
+            <div class="col-lg-7 therez-map">
+                <img src="./assets/img/supply/torkil-torgard-yXtQPmyvMzY-unsplash.jpg" class="img-fluid" alt="">
+        </div>
+    </section>
+    
+
+    <!-- Section:Block -->  
+    <div class="container py-3 my-5 mt-5 text-center invisible">
+        block   
+    </div>
+
+    <div class="item-float7">
+        <div class="float-circle"></div>
+        <div class="float-img">
+            <img src="./assets/img/float/biscuit.png" class="" alt="">
+        </div>
+        <div class="float-circle2"></div>
+    </div>
+
+    <!--
+    contact -->
+    <section class="mb-2 invisible" id="contact">
+        block
+    </section>
+    <section class="my-2 m-2 py-5 custom-color rounded-3" data-aos="fade-up" data-aos-delay="500">
+        <div class="therez-contact text-center text-dark">
+            <div class="p-5">
+                <h2 class="mb-4 fw-bolder">Contact Us</h2>
+                <p class="mb-4">Have questions, feedback, or just want to say hello? We'd love to hear from you! Reach out to us through any of the following ways:</p>
+                <div class="therez-contact-info vstack text-center justify-content-center">
+                    <div class="me-4">
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>+234 705 596 2992</span>
+                    </div>
+                    <div class="me-4">
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>info@therez-viva.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container border-none rounded-4 p-4 therez-contact-form w-100">
+                <form action="https://wa.link/xxizak" class="">
+                    <div class="mb-3 w-100 text-start">
+                        <input type="text" class="form-control w-100" id="name" placeholder="Your Name">
+                    </div>
+                    <div class="mb-3 text-start">
+                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                    </div>
+                    <div class="mb-3 text-start">
+                        <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn w-100 fw-bolder">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section:Block -->  
+    <div class="container py-3 my-5 mt-5 text-center invisible">
+        block   
+    </div>
+
+    <div class="item-float8">
+        <div class="float-circle"></div>
+        <div class="float-circle2"></div>
+        <div class="float-circle3"></div>
+    </div>
+
+    <!--
+    location-->
+    <section class="mb-5 invisible" id="location">
+        block
+    </section>
+    <section  class="m-3">
+        <div class="row"> 
+            <div class="col-lg-7 therez-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2588.3427871142476!2d7.053682459008859!3d4.822420070805596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069cd069348f70f%3A0x5e4c32a26dedd987!2sYKC!5e1!3m2!1sen!2sng!4v1764549959638!5m2!1sen!2sng" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-lg-5 z-2">
+                <div class="text-light text-center d-flex flex-column justify-content-center align-items-center h-100">
+                    <h2 class="mb-4 fw-bolder">Visit Our Branches</h2>
+                    <p>Find Your Flavor at a Location Near You!
+                       Your journey to exceptional ingredients is closer than you think. With our branch in the city, Therez-Viva is always nearby, ready to serve you.
+                        Step into any of our locations and experience the same commitment to quality, freshness, and outstanding service that defines us. Our friendly staff are more than just employees; 
+                        they're local food experts eager to help you find exactly what you need.
+                        Visit us today and see the difference for yourself.
+                    </p>
+                    <p class="fw-bold">
+                        Plot 16, Block 33, Woji Estate Road. Woji Estate Junction, Port Harcourt
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="custom-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000000ff" fill-opacity="1" 
+    d="M0,96L20,112C40,128,80,160,120,154.7C160,149,200,107,240,112C280,117,320,171,360,202.7C400,235,440,245,480,224C520,203,560,149,600,128C640,107,680,117,720,117.3C760,117,800,107,840,128C880,149,920,203,960,192C1000,181,1040,107,1080,101.3C1120,96,1160,160,1200,192C1240,224,1280,224,1320,202.7C1360,181,1400,139,1420,117.3L1440,96L1440,0L1420,0C1400,0,1360,0,1320,0C1280,0,1240,0,1200,0C1160,0,1120,0,1080,0C1040,0,1000,0,960,0C920,0,880,0,840,0C800,0,760,0,720,0C680,0,640,0,600,0C560,0,520,0,480,0C440,0,400,0,360,0C320,0,280,0,240,0C200,0,160,0,120,0C80,0,40,0,20,0L0,0Z"></path></svg>
+
+    <!--
+    bottom-cta
+    <section class="m-2 therez-bottom-cta bg-secondary rounded-4 d-flex justify-content-center align-items-center">
+        <div class="py-5 p-5 text-center text-light">
+            <p>interested in our delicious treats? hop on to our menu and place an order now!</p>
+            <a href="" class="btn btn-light fw-bolder">order now</a>
+        </div>
+    </section>
+    -->
+
+    <div class="item-float9">
+        <div class="float-img">
+            <img src="./assets/img/float/eggroll.png" class="" alt="">
+        </div>
+        <div class="float-circle"></div>
+        <div class="float-circle2"></div>
+        <div class="float-img2">
+            <img src="./assets/img/float/bread.png" class="" alt="">
+        </div>
+    </div>
+
+    <!--
+    footer-->
+    <footer class="footer p-5">
+        <div class="row">
+            <div class="col-lg-6 footer-text-main">
+                <div class="d-flex justify-content-start">
+                <img src="./assets/img/logo/therez-logo.png" alt="">
+                </div>
+                <p>tasty treats here to feed your cravings and brighten your day with a happy smile</p>
+                <div class="footer-text-main-icon">
+                    <i class="bi bi-tiktok"></i>
+                    <i class="bi bi-instagram"></i>
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-whatsapp"></i>
+                </div>
+            </div>
+            <div class="col-lg-2 p-3 footer-text">
+                <b>product</b>
+                <p>menu</p>
+                <p>top choice</p>
+                <p>review</p>
+                <p>survey</p>
+            </div>
+            <div class="col-lg-2 p-3 footer-text">
+                <b>resoures</b>
+                <p>pricing</p>
+                <p>delivery</p>
+                <p>support</p>
+            </div>
+            <div class="col-lg-2 p-3 footer-text">
+                <b>company</b>
+                <p>contact</p>
+                <p>about</p>
+                <p>patners</p>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex footer-honours">
+            <em><span class="fw-bolder">©2025</span> therez-viva.all rights reserved</em>
+            <div>
+            <a href="">privacy policy</a>
+            <a href="">terms of service</a>
+            <a href="">cookies</a>
+            </div>
+        </div>
+                </div>    
+    </footer>
+    </section>
+    
+
+    <!-- vendors -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./assets/vendor/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Cart state
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // DOM Elements
+        const cartCount = document.getElementById('cartCount');
+        const cartIcon = document.getElementById('cartIcon');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const closeModal = document.getElementById('closeModal');
+        const cartItems = document.getElementById('cartItems');
+        const totalAmount = document.getElementById('totalAmount');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const finalCheckoutBtn = document.getElementById('finalCheckoutBtn');
+
+        // Update cart count display
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Add item to cart
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: parseFloat(price),
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            showCartNotification(name);
+        }
+
+        // Show notification when item is added
+        function showCartNotification(itemName) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgb(255, 102, 0);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 5px;
+                z-index: 1001;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.innerHTML = `<i class="fas fa-check"></i> ${itemName} added to cart!`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 1500);
+        }
+
+        // Remove item from cart
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartCount();
+            renderCartItems();
+        }
+
+        // Update item quantity
+        function updateQuantity(id, change) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity < 1) {
+                    removeFromCart(id);
+                    return;
+                }
+                updateCartCount();
+                renderCartItems();
+            }
+        }
+
+        // Render cart items in modal
+        function renderCartItems() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<div class="empty-cart"><i class="fas fa-shopping-cart fa-3x"></i><h3>Your cart is empty</h3><p>Add items from the menu to get started!</p></div>';
+                totalAmount.textContent = '₦0.00';
+                return;
+            }
+
+            let itemsHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <h4>${item.name}</h4>
+                            <p>₦${item.price.toFixed(2)} each</p>
+                        </div>
+                        <div class="item-actions">
+                            <button class="quantity-btn" onclick="updateQuantity('${item.id}', -1)"><i class="fa fa-minus"></i></button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity('${item.id}', 1)"><i class="fa fa-plus"></i></button>
+                            <button class="remove-btn" onclick="removeFromCart('${item.id}')"><i class="fa fa-trash-can"></i></button>
+                        </div>
+                        <div class="item-total">
+                            ₦${itemTotal.toFixed(2)}
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItems.innerHTML = itemsHTML;
+            totalAmount.textContent = `₦${total.toFixed(2)}`;
+        }
+
+        // Event Listeners
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = button.getAttribute('data-price');
+                addToCart(id, name, price);
+            });
+        });
+
+        cartIcon.addEventListener('click', () => {
+            renderCartItems();
+            checkoutModal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === checkoutModal) {
+                checkoutModal.style.display = 'none';
+            }
+        });
+
+        finalCheckoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            alert(`Thank you for your order!\nTotal: $${total.toFixed(2)}\nYour order has been placed successfully!`);
+            
+            // Clear cart after checkout
+            cart = [];
+            updateCartCount();
+            renderCartItems();
+            checkoutModal.style.display = 'none';
+        });
+
+        // Initialize cart count on page load
+        updateCartCount();
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            autoplay:true,
+            autoplayTimeout:1500,
+            autoplayHoverPause:true,
+            autoWidth:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        })
+    </script>
+        <script>
+        window.addEventListener("scroll", function(){
+            const header = document.querySelector(".navbar");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $("a").on('click', function(event) {
+        if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;
+        $('html, body').animate({
+        scrollTop: $(hash).offset().top
+        }, 800, function() {
+        window.location.hash = hash;
+        });
+        }
+        });
+        });
+    </script>
+    <script>
+    setTimeout(function(){
+        $('.loader-bg').fadeToggle('slow');
+    }, 2500);
+    </script>
+    
+    <!-- main -->
+    <script src="./assets/js/therez.js"></script>
+</body>
+</html>
