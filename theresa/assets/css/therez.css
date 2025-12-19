@@ -1209,7 +1209,7 @@ therez float-animate
         width: auto;
         top: 7em;
         right: 3%;
-        height: 92px;
+        height: 82px;
         z-index: 1;
         animation: jiggle 6s ease-in-out infinite;
     }
@@ -1554,4 +1554,5 @@ footer
     .footer-honours a{
         margin: 5px 0px;
     }
+
 }
