@@ -1,0 +1,221 @@
+:root{
+    --bs-light: white;
+    --bs--light: white;
+    --bs-negative: black;
+    --bs-orange: #fd7e14;
+    --bs--orange: #fd7e14;
+}
+
+/* Form Section */
+.form-container{
+    position: relative;
+    padding: 20px;
+}
+.form-section {
+    padding: 60px 0;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 60px;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e8f0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: #d37925;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.phone-note {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+    display: block;
+}
+
+.submit-btn {
+    background: var(--bs-orange);
+    width: 100%;
+    color: white;
+    border: 1px solid var(--bs-light);
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 0 30px;
+    }
+    
+    .hero-content h2 {
+        font-size: 36px;
+    }
+    
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .hero-content h2 {
+        font-size: 30px;
+    }
+    
+    .form-container {
+        padding: 0 15px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 26px;
+    }
+    
+    .section-title h3 {
+        font-size: 26px;
+    }
+    
+    .form-section {
+        padding: 40px 0;
+    }
+}
+
+/* Form Validation Styles */
+.error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.success-message {
+    position: absolute;
+    background-color: #ffffff;
+    color: var(--bs-orange);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ffffff;
+    margin-bottom: 20px;
+    height: 70px;
+    display: none;
+}
+
+.whatsapp-link {
+    display: inline-block;
+    margin-top: 85px;
+    padding: 12px 25px;
+    background-color: var(--bs-orange);
+    color: white;
+    border: 1px solid var(--bs-light);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.whatsapp-link:hover {
+    background-color: #ffffff;
+    color: var(--bs-orange);
+    transform: translateY(-2px);
+}
+
+.flag-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.flag {
+    width: 30px;
+    height: 20px;
+    background: linear-gradient(to bottom, #008751 33%, white 33%, white 66%, #008751 66%);
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.flag::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #008751;
+    border-radius: 50%;
+}

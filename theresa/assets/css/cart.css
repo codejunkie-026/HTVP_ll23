@@ -1,0 +1,720 @@
+:root{
+    --bs-light: white;
+    --bs-negative: black;
+    --bs-orange: #fd7e14;
+}
+
+
+/*===
+main
+=====*/
+.body{
+    margin: 0px;
+    margin: 0px;
+    background: var(--bs-negative);
+    color: var(--bs-light);
+    overflow-x: hidden;
+    font-family: headwar;
+    user-select: none;
+}
+@font-face {
+    font-family: 'headwar';
+    src: url('../vendor/font/Headwar.ttf') format('truetype');
+}
+
+
+/* Add to Cart Animation */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.add-to-cart-animation {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background-color: var(--bs-orange);
+    color: var(--bs-negative);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    animation: slideInRight 0.5s ease, fadeOut 0.5s ease 2s forwards;
+}
+
+
+/* Custom CSS for Therez-Viva Cart & Checkout System */
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background-color: var(--bs-orange);
+    color: var(--bs-negative);
+    padding: 15px 25px;
+    border-radius: 8px;
+    z-index: 9999;
+    animation: slideInRight 0.5s ease, fadeOut 0.5s ease 2.5s forwards;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.notification.success {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-content i {
+    font-size: 1.2rem;
+}
+
+
+
+/*
+ Ensure cart modal is properly styled 
+ */
+.cart-modal .modal-content {
+    background-color: var(--bs-negative);
+    color: var(--bs-light);
+}
+
+.cart-modal .modal-header {
+    border-bottom: 2px solid var(--bs-orange);
+}
+
+.cart-modal .modal-footer {
+    border-top: 2px solid var(--bs-orange);
+}
+
+/* Make sure cart count is visible */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--bs-orange);
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid var(--bs-light);
+}
+/* Cart Icon Styles */
+.cart-icon-container {
+    position: fixed;
+    right: 7px;
+    z-index: 1000;
+    bottom: 5px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--bs-light);
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+
+
+/* Cart Modal Styles */
+.cart-modal {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cart-modal-content {
+    background-color: var(--bs-negative);
+    border-radius: 15px;
+    border: 2px solid var(--bs-orange);
+}
+
+.cart-modal-header {
+    border-bottom: 2px solid var(--bs-orange);
+    background-color: rgba(255, 102, 0, 0.1);
+}
+
+.cart-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--bs-orange);
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    background-color: rgba(255, 102, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--bs-orange);
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    color: var(--bs-light);
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.cart-item-price {
+    color: var(--bs-orange);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid var(--bs-orange);
+    background-color: transparent;
+    color: var(--bs-orange);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background-color: var(--bs-orange);
+    color: var(--bs-negative);
+}
+
+.quantity-display {
+    min-width: 40px;
+    text-align: center;
+    color: var(--bs-light);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    color: #ff0000;
+    transform: scale(1.2);
+}
+
+.cart-summary {
+    background-color: rgba(255, 102, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    border-top: 2px solid var(--bs-orange);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--bs-light);
+}
+
+.summary-total {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--bs-orange);
+    border-top: 2px solid var(--bs-orange);
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--bs-light);
+}
+
+.empty-cart-icon {
+    font-size: 4rem;
+    color: var(--bs-orange);
+    margin-bottom: 20px;
+}
+@media (max-width: 576px) {
+    .cart-item {
+        border-radius: 10px;
+        padding: 10px;
+        transition: all 0.3s ease;
+    }
+    .cart-item:hover {
+        background-color: none;
+        transform: translateX(0px);
+    }
+    .cart-item-image {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+    .cart-item-title {
+        color: var(--bs-light);
+        font-weight: 600;
+        margin-bottom: 5px;
+        font-size: .9rem;
+    }
+    .cart-item-price {
+        color: var(--bs-orange);
+        font-weight: 700;
+        font-size: .9rem;
+    }
+    .quantity-btn {
+        width: 10px;
+        height: 10px;
+        padding: 10px 10px;
+        font-size: 0.9rem;
+    }
+    .quantity-display {
+        min-width: 20px;
+        font-size: .9rem;
+    }
+    .quantity-controls {
+        align-items: center;
+        gap: 0px;
+    }
+    .remove-btn {
+        font-size: .9rem;
+        cursor: pointer;
+        padding: 5px;
+        transition: all 0.3s ease;
+    }
+    .modalhome{
+        width: 100%;
+    }
+    .add-to-cart-btn{
+        padding: 10px 12px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Checkout Page Styles */
+.checkout-container {
+    background-color: var(--bs-negative);
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.checkout-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    border: 2px solid var(--bs-orange);
+    margin-bottom: 30px;
+}
+
+.checkout-title {
+    color: var(--bs-orange);
+    font-weight: 700;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--bs-orange);
+    padding-bottom: 15px;
+}
+
+.checkout-items {
+    margin-bottom: 30px;
+}
+
+.checkout-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--bs-orange);
+}
+
+.checkout-item-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--bs-orange);
+}
+
+.checkout-item-name {
+    color: var(--bs-light);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.checkout-item-quantity {
+    color: var(--bs-orange);
+    font-weight: 600;
+    background-color: rgba(255, 102, 0, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.checkout-item-price {
+    color: var(--bs-orange);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.checkout-summary {
+    background-color: rgba(255, 102, 0, 0.1);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.checkout-summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: var(--bs-light);
+    font-size: 1.1rem;
+}
+
+.checkout-total {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--bs-orange);
+    border-top: 2px solid var(--bs-orange);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+/* Location Form Styles */
+.location-form {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.location-title {
+    color: var(--bs-orange);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.form-control-custom {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--bs-orange);
+    color: var(--bs-light);
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control-custom:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--bs-orange);
+    color: var(--bs-light);
+    box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.25);
+}
+
+.form-control-custom::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-label-custom {
+    color: var(--bs-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.save-location-checkbox {
+    color: var(--bs-light);
+    margin-top: 15px;
+}
+
+.save-location-checkbox input {
+    margin-right: 10px;
+}
+
+/* Buttons */
+.btn-checkout {
+    background-color: var(--bs-orange);
+    color: var(--bs-negative);
+    border: none;
+    padding: 15px 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-checkout:hover {
+    background-color: var(--bs-orange-subtle);
+    color: var(--bs-negative);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3);
+}
+
+.btn-proceed {
+    background-color: var(--bs-orange);
+    color: var(--bs-negative);
+    border: none;
+    padding: 12px 25px;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-proceed:hover {
+    background-color: var(--bs-orange-subtle);
+    transform: translateY(-2px);
+}
+
+.btn-back {
+    background-color: transparent;
+    border: 2px solid var(--bs-orange);
+    color: var(--bs-orange);
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: var(--bs-orange);
+    color: var(--bs-negative);
+}
+
+/* PAYSTACK Integration Section */
+.paystack-section {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    border: 2px dashed var(--bs-orange);
+}
+
+.paystack-title {
+    color: var(--bs-orange);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.paystack-placeholder {
+    background-color: rgba(255, 102, 0, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    color: var(--bs-light);
+    font-style: italic;
+    margin: 15px 0;
+}
+
+/* Admin Notification Styles */
+.notification-system {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 400px;
+}
+
+.notification-card {
+    background-color: var(--bs-negative);
+    border-left: 5px solid #2ecc71;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    animation: slideInRight 0.5s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.notification-title {
+    color: #2ecc71;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: var(--bs-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.notification-body {
+    color: var(--bs-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cart-item-image {
+        margin-bottom: 15px;
+    }
+    
+    .quantity-controls {
+        justify-content: center;
+        margin: 10px 0;
+    }
+    
+    .cart-modal-content {
+        margin: 10px;
+    }
+    
+    .checkout-card {
+        padding: 20px;
+    }
+    
+    .checkout-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .checkout-item-image {
+        margin-bottom: 10px;
+    }
+}
+
+/* Loading Animation */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    display: none;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 102, 0, 0.3);
+    border-top: 5px solid var(--bs-orange);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success Message */
+.success-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    display: none;
+}
+
+.success-content {
+    background-color: var(--bs-negative);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    border: 3px solid #2ecc71;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #2ecc71;
+    margin-bottom: 20px;
+}
+
+.success-content h2 {
+    color: var(--bs-light);
+    margin-bottom: 15px;
+}
+
+.success-content p {
+    color: var(--bs-light);
+    margin-bottom: 25px;
+}
+
+/* Utility Classes */
+.text-orange {
+    color: var(--bs-orange) !important;
+}
+
+.bg-orange {
+    background-color: var(--bs-orange) !important;
+}
+
+.border-orange {
+    border-color: var(--bs-orange) !important;
+}
