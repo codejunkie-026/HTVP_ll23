@@ -954,9 +954,9 @@ therez float-animate
 .item-float2 .float-img img{
     position: absolute;
     width: auto;
-    top: -10em;
+    top: -12em;
     right: 15%;
-    height: 152px;
+    height: 102px;
     animation: jiggle 6s ease-in-out infinite;
 }
 /*float3*/
@@ -968,7 +968,7 @@ therez float-animate
     width: auto;
     top: 8em;
     right: 35%;
-    height: 152px;
+    height: 102px;
     animation: jiggle 6s ease-in-out infinite;
 }
 .item-float3 .float-img2 img{
@@ -976,7 +976,7 @@ therez float-animate
     width: auto;
     top: 2em;
     left: 7%;
-    height: 152px;
+    height: 102px;
     animation: jiggle 6s ease-in-out infinite;
 }
 .item-float3 .float-circle{
@@ -1013,7 +1013,6 @@ therez float-animate
     background: var(--bs-orange-subtle);
     top: -29em;
     right: 9%;
-    z-index: 1;
     animation: pulse 5s ease-in-out infinite;
 }
 .item-float4 .float-circle2{
@@ -1024,7 +1023,6 @@ therez float-animate
     background: var(--bs-orange-subtle);
     top: -30em;
     left: 7%;
-    z-index: 1;
     animation: pulse 5s ease-in-out infinite;
 }
 .item-float4 .float-circle3{
@@ -1035,7 +1033,6 @@ therez float-animate
     background: var(--bs-orange-subtle);
     top: -27em;
     left: 45%;
-    z-index: 1;
     animation: pulse 5s ease-in-out infinite;
 }
 .item-float4 .float-img img{
@@ -1687,4 +1684,5 @@ footer
     .footer-honours a{
         margin: 5px 0px;
     }
+
 }
