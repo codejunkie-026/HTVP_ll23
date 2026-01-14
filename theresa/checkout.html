@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - THEREZ~VIVA</title>
+    
+    <!-- favicon -->
+    <link rel="icon" href="./assets/vendor/favicon_io/favicon-32x32.png">
+
+    <!-- vendors-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- main -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/cart.css">
+</head>
+<body class="body">
+    
+    <!-- Navigation -->
+    <div class="nav-contain z-3">
+        <div class="navbar navbar-expand-lg">
+            <div class="logo navbar-brand ms-2 text-white fw-bold fs-3">
+                <img src="./assets/img/logo/logo.png" alt="THEREZ~VIVA">
+            </div>
+            <div class="profile-section">
+                <a href="index.html" class="btn-back me-2">
+                    <i class="bi bi-arrow-left"></i> Back to Menu
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Container -->
+    <div class="checkout-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="checkout-card">
+                        <h1 class="checkout-title">
+                            <i class="bi bi-cart-check"></i> Checkout
+                        </h1>
+
+                        <!-- Order Items -->
+                        <div class="checkout-items">
+                            <h3 class="text-light mb-4">Order Summary</h3>
+                            <div id="checkoutItemsContainer">
+                                <!-- Items will be loaded here by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Order Summary -->
+                        <div class="checkout-summary">
+                            <h3 class="text-light mb-4">Order Total</h3>
+                            <div class="checkout-summary-item">
+                                <span>Subtotal:</span>
+                                <span id="checkoutSubtotal">₦0</span>
+                            </div>
+                            <!-- INSERT TAX HERE -->
+                            <!-- Add tax calculation here -->
+                            <div class="checkout-summary-item">
+                                <span>Tax (7.5%):</span>
+                                <span id="checkoutTax">₦0</span>
+                            </div>
+                            <!-- DELIVERY FEE REMOVED -->
+                            <div class="checkout-total">
+                                <span>Total:</span>
+                                <span id="checkoutTotal">₦0</span>
+                            </div>
+                        </div>
+                        <!-- Add this after the checkout summary for debugging -->
+                        <div class="mt-3 text-center" style="display: none;" id="debugInfo">
+                            <small class="text-muted">Debug: Subtotal + Tax = Total</small>
+                        </div>
+
+                        <!-- Location Form -->
+                        <div class="location-form">
+                            <h3 class="location-title">
+                                <i class="bi bi-geo-alt"></i> Delivery Information
+                            </h3>
+                            <form id="deliveryForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label-custom">Full Name *</label>
+                                        <input type="text" class="form-control form-control-custom" 
+                                               id="customerName" required
+                                               placeholder="Enter your full name">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label-custom">Phone Number *</label>
+                                        <input type="tel" class="form-control form-control-custom" 
+                                               id="customerPhone" required
+                                               placeholder="Enter your phone number">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label-custom">Area/Neighborhood *</label>
+                                        <input type="text" class="form-control form-control-custom" 
+                                               id="customerArea" required
+                                               placeholder="Enter your area (e.g., Woji Estate)">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label-custom">Street Name *</label>
+                                        <input type="text" class="form-control form-control-custom" 
+                                               id="customerStreet" required
+                                               placeholder="Enter street name">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label-custom">Landmark</label>
+                                        <input type="text" class="form-control form-control-custom" 
+                                               id="customerLandmark"
+                                               placeholder="Nearby landmark">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label-custom">Additional Instructions</label>
+                                        <input type="text" class="form-control form-control-custom" 
+                                               id="customerInstructions"
+                                               placeholder="Any special instructions?">
+                                    </div>
+                                </div>
+                                
+                                <div class="save-location-checkbox">
+                                    <input type="checkbox" id="saveLocation" checked>
+                                    <label for="saveLocation">Save my delivery information for future orders</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Payment Section -->
+                        <div class="paystack-section"><!----
+                            <h4 class="paystack-title">Payment Method</h4>
+                            <p class="text-light mb-4">We accept secure payments via PAYSTACK</p>
+                            
+                            <!-- INSERT PAYSTACK EMBEDDED LINK HERE --
+                            <!-- Replace this div with your PAYSTACK payment button/embed code --
+                            <div class="paystack-placeholder">
+                                <i class="bi bi-credit-card fs-1 mb-3 d-block text-orange"></i>
+                                <p>PAYSTACK PAYMENT INTEGRATION</p>
+                                <small>Insert PAYSTACK payment button or embed code here</small>
+                            </div>
+                            <!-- END PAYSTACK INTEGRATION SECTION -->
+                            
+                            <button class="btn-checkout mt-4" onclick="processPayment()">
+                                <i class="bi bi-lock"></i> Pay Now
+                            </button>
+                        </div>
+
+                        <!-- Order Note -->
+                        <div class="alert alert-warning mt-4 border-orange" role="alert">
+                            <i class="bi bi-info-circle"></i>
+                            <strong>Note:</strong> All payments are processed securely. You'll receive a confirmation SMS once your order is confirmed.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="bi bi-check-circle"></i>
+            </div>
+            <h2>Order Successful!</h2>
+            <p>Your payment has been processed successfully, Thank you for your order.</p>
+            <p class="text-orange fw-bold">Order ID: <span id="orderId">#TV0001</span></p>
+            <p class="fw-bold">Drop by our store to pick up your order.</p>
+            <button class="btn-checkout mt-3" onclick="returnToHomeWithReceipt()">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification System (for admin notifications) -->
+    <div class="notification-system" id="notificationSystem"></div>
+
+    <!-- Footer -->
+    <footer class="footer orange-bg p-5">
+        <div class="d-flex justify-content-center align-items-center mb-3">
+            <img src="./assets/img/logo/footer.png" alt="THEREZ~VIVA">
+        </div>
+        <div class="footer-honours">
+            <em><span class="fw-bolder">©2025</span> therez-viva. All rights reserved</em>
+            <div>
+                <a href="">privacy policy</a>
+                <a href="">terms of service</a>
+                <a href="">cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- vendors -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- main -->
+    <script src="./assets/js/viva.js"></script>
+    <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/order-confirmation.js"></script>
+    
+    <script>
+    // Add this function to test WhatsApp
+    function testWhatsAppConnection() {
+        const testPhone = "2347054450242"; // Your admin number
+        const testMessage = "Test notification from THEREZ~VIVA website";
+        const encodedMessage = encodeURIComponent(testMessage);
+        const testURL = `https://wa.me/${testPhone}?text=${encodedMessage}`;
+        
+        console.log('Test WhatsApp URL:', testURL);
+        
+        // Open in new tab for testing
+        const testWindow = window.open(testURL, '_blank', 'width=600,height=400');
+        
+        if (!testWindow) {
+            alert('Popup blocked! Please allow popups for this site to send WhatsApp notifications.');
+            return false;
+        }
+        
+        return true;
+    }
+    </script>
+    <script>
+    // Add debug function
+    function updateDebugInfo() {
+        const checkoutData = getCheckoutData();
+        const debugElement = document.getElementById('debugInfo');
+        
+        if (debugElement && checkoutData) {
+            debugElement.innerHTML = `
+                <small class="text-muted">
+                    Debug: ₦${checkoutData.subtotal.toLocaleString()} + 
+                    ₦${checkoutData.tax.toLocaleString()} = 
+                    ₦${checkoutData.total.toLocaleString()}
+                </small>
+            `;
+        }
+    }
+
+    // Get checkout data from cart system or localStorage
+    function getCheckoutData() {
+        if (window.cartSystem && typeof cartSystem.getCheckoutData === 'function') {
+            return cartSystem.getCheckoutData();
+        }
+        
+        // Fallback to localStorage
+        const savedData = localStorage.getItem('checkoutData');
+        if (savedData) {
+            return JSON.parse(savedData);
+        }
+        
+        // Calculate from cart
+        const cart = JSON.parse(localStorage.getItem('therezVivaCart')) || [];
+        const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        const tax = subtotal * 0.075;
+        const total = subtotal + tax;
+        
+        return {
+            subtotal: subtotal,
+            tax: tax,
+            total: total,
+            items: cart
+        };
+    }
+
+    // Call it when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load checkout items
+        loadCheckoutItems();
+        loadSavedLocation();
+        updateOrderSummary();
+        
+        setTimeout(updateDebugInfo, 500);
+    });
+
+    function loadCheckoutItems() {
+        const checkoutData = getCheckoutData();
+        const container = document.getElementById('checkoutItemsContainer');
+        
+        if (!checkoutData || checkoutData.items.length === 0) {
+            container.innerHTML = `
+                <div class="empty-cart">
+                    <i class="bi bi-cart-x empty-cart-icon"></i>
+                    <h3 class="text-light">Your cart is empty</h3>
+                    <p class="text-light">Add items from the menu to proceed</p>
+                    <a href="index.html" class="btn-proceed mt-3">Back to Menu</a>
+                </div>
+            `;
+            return;
+        }
+        
+        container.innerHTML = '';
+        
+        checkoutData.items.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            
+            const itemElement = document.createElement('div');
+            itemElement.className = 'checkout-item d-flex align-items-center justify-content-between';
+            itemElement.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <img src="${item.image}" alt="${item.name}" class="checkout-item-image me-3">
+                    <div>
+                        <h4 class="checkout-item-name mb-1">${item.name}</h4>
+                        <div class="checkout-item-quantity">Qty: ${item.quantity}</div>
+                    </div>
+                </div>
+                <div class="checkout-item-price">₦${itemTotal.toLocaleString()}</div>
+            `;
+            container.appendChild(itemElement);
+        });
+    }
+
+    function updateOrderSummary() {
+        const checkoutData = getCheckoutData();
+        
+        if (!checkoutData || checkoutData.items.length === 0) {
+            return;
+        }
+        
+        // Update display
+        document.getElementById('checkoutSubtotal').textContent = `₦${checkoutData.subtotal.toLocaleString()}`;
+        document.getElementById('checkoutTax').textContent = `₦${checkoutData.tax.toLocaleString()}`;
+        document.getElementById('checkoutTotal').textContent = `₦${checkoutData.total.toLocaleString()}`;
+        
+        // Store order total for payment processing
+        localStorage.setItem('orderTotal', checkoutData.total);
+        
+        // Verify totals match
+        console.log('Checkout Summary:', {
+            subtotal: checkoutData.subtotal,
+            tax: checkoutData.tax,
+            total: checkoutData.total,
+            calculatedTotal: checkoutData.subtotal + checkoutData.tax
+        });
+    }
+
+    function loadSavedLocation() {
+        const savedLocation = localStorage.getItem('deliveryInfo');
+        if (savedLocation) {
+            try {
+                const location = JSON.parse(savedLocation);
+                document.getElementById('customerName').value = location.name || '';
+                document.getElementById('customerPhone').value = location.phone || '';
+                document.getElementById('customerArea').value = location.area || '';
+                document.getElementById('customerStreet').value = location.street || '';
+                document.getElementById('customerLandmark').value = location.landmark || '';
+                document.getElementById('customerInstructions').value = location.instructions || '';
+            } catch (e) {
+                console.error('Error parsing saved location:', e);
+            }
+        }
+    }
+
+    function saveLocation() {
+        const saveCheckbox = document.getElementById('saveLocation');
+        if (saveCheckbox.checked) {
+            const locationInfo = {
+                name: document.getElementById('customerName').value,
+                phone: document.getElementById('customerPhone').value,
+                area: document.getElementById('customerArea').value,
+                street: document.getElementById('customerStreet').value,
+                landmark: document.getElementById('customerLandmark').value,
+                instructions: document.getElementById('customerInstructions').value,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('deliveryInfo', JSON.stringify(locationInfo));
+        }
+    }
+
+    function validateForm() {
+        const requiredFields = ['customerName', 'customerPhone', 'customerArea', 'customerStreet'];
+        
+        for (const fieldId of requiredFields) {
+            const field = document.getElementById(fieldId);
+            if (!field.value.trim()) {
+                alert(`Please fill in ${field.placeholder}`);
+                field.focus();
+                return false;
+            }
+        }
+        
+        // Validate phone number
+        const phone = document.getElementById('customerPhone').value;
+        const phoneRegex = /^[0-9]{11}$/;
+        if (!phoneRegex.test(phone)) {
+            alert('Please enter a valid 11-digit Nigerian phone number');
+            return false;
+        }
+        
+        return true;
+    }
+
+    function generateOrderId() {
+        const timestamp = Date.now().toString();
+        const randomNum = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+        return `TV${timestamp.slice(-6)}${randomNum.slice(-4)}`;
+    }
+
+    function processPayment() {
+        if (!validateForm()) {
+            return;
+        }
+        
+        // Verify cart is not empty
+        const checkoutData = getCheckoutData();
+        if (!checkoutData || checkoutData.items.length === 0) {
+            alert('Your cart is empty. Please add items before checkout.');
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        // Verify totals match
+        const calculatedTotal = checkoutData.subtotal + checkoutData.tax;
+        
+        if (Math.abs(checkoutData.total - calculatedTotal) > 0.01) {
+            console.error('Total mismatch:', {
+                stored: checkoutData.total,
+                calculated: calculatedTotal
+            });
+            alert('There was an error calculating your total. Please refresh and try again.');
+            return;
+        }
+        
+        // Save location information
+        saveLocation();
+        
+        // Show loading
+        document.getElementById('loadingOverlay').style.display = 'flex';
+        
+        // Simulate payment processing
+        setTimeout(() => {
+            document.getElementById('loadingOverlay').style.display = 'none';
+            
+            // Generate random order ID
+            const orderId = generateOrderId();
+            document.getElementById('orderId').textContent = `#${orderId}`;
+            
+            // Get checkout data
+            const currentCheckoutData = getCheckoutData();
+            
+            // Prepare order data
+            const orderData = {
+                orderId: orderId,
+                customerName: document.getElementById('customerName').value,
+                customerPhone: document.getElementById('customerPhone').value,
+                area: document.getElementById('customerArea').value,
+                street: document.getElementById('customerStreet').value,
+                landmark: document.getElementById('customerLandmark').value,
+                instructions: document.getElementById('customerInstructions').value,
+                total: currentCheckoutData.total,
+                subtotal: currentCheckoutData.subtotal,
+                tax: currentCheckoutData.tax,
+                items: currentCheckoutData.items,
+                timestamp: new Date().toISOString(),
+                date: new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                })
+            };
+            
+            // Save order to localStorage
+            saveOrder(orderData);
+
+            // Add this before calling sendOrderConfirmation
+            console.log('DEBUG - Order Data before sending:', {
+                orderId: orderData.orderId,
+                itemsCount: orderData.items.length,
+                items: orderData.items,
+                itemsJSON: JSON.stringify(orderData.items)
+            });
+
+            // Check if items exist
+            if (!orderData.items || orderData.items.length === 0) {
+                console.error('ERROR: No items in order data!');
+                // Try to get items from cart
+                const cart = JSON.parse(localStorage.getItem('therezVivaCart')) || [];
+                console.log('Cart from localStorage:', cart);
+                orderData.items = cart; // Add items from cart
+            }
+
+            // Then send notification
+            sendOrderConfirmation(orderData);
+                        
+            // Send WhatsApp notification to admin
+            setTimeout(() => {
+                if (window.sendOrderConfirmation) {
+                    sendOrderConfirmation(orderData);
+                } else if (window.whatsAppService) {
+                    whatsAppService.sendOrderNotification(orderData)
+                        .then(success => {
+                            console.log('WhatsApp notification sent:', success);
+                        })
+                        .catch(error => {
+                            console.error('WhatsApp notification failed:', error);
+                        });
+                } else {
+                    console.log('Using fallback notification');
+                    sendAdminNotification(orderId);
+                }
+            }, 1000);
+                        
+            // Show success message
+            document.getElementById('successMessage').style.display = 'flex';
+            
+            // Clear cart
+            if (window.cartSystem && typeof cartSystem.clearCart === 'function') {
+                cartSystem.clearCart();
+            } else {
+                // Fallback: clear cart from localStorage
+                localStorage.removeItem('therezVivaCart');
+                localStorage.removeItem('checkoutData');
+            }
+        }, 2000);
+    }
+
+    function saveOrder(orderData) {
+        // Get existing orders
+        const existingOrders = JSON.parse(localStorage.getItem('therezVivaOrders')) || [];
+        
+        // Add new order
+        existingOrders.unshift(orderData);
+        
+        // Keep only last 10 orders
+        if (existingOrders.length > 10) {
+            existingOrders.splice(10);
+        }
+        
+        // Save back to localStorage
+        localStorage.setItem('therezVivaOrders', JSON.stringify(existingOrders));
+        console.log('Order saved:', orderData);
+    }
+
+    function sendAdminNotification(orderId) {
+        const checkoutData = getCheckoutData();
+        
+        const orderDetails = {
+            orderId: orderId,
+            customerName: document.getElementById('customerName').value,
+            customerPhone: document.getElementById('customerPhone').value,
+            area: document.getElementById('customerArea').value,
+            street: document.getElementById('customerStreet').value,
+            landmark: document.getElementById('customerLandmark').value,
+            total: checkoutData.total,
+            subtotal: checkoutData.subtotal,
+            tax: checkoutData.tax,
+            items: checkoutData.items,
+            timestamp: new Date().toISOString()
+        };
+        
+        console.log('Admin Notification:', orderDetails);
+        console.log('Order Total: ₦' + orderDetails.total.toLocaleString());
+        console.log('Subtotal: ₦' + orderDetails.subtotal.toLocaleString());
+        console.log('Tax: ₦' + orderDetails.tax.toLocaleString());
+        
+        showNotification('Order notification sent to admin successfully!');
+    }
+
+    function showNotification(message) {
+        const notificationSystem = document.getElementById('notificationSystem');
+        const notificationId = 'notification-' + Date.now();
+        
+        const notification = document.createElement('div');
+        notification.className = 'notification-card';
+        notification.id = notificationId;
+        notification.innerHTML = `
+            <div class="notification-header">
+                <h5 class="notification-title">
+                    <i class="bi bi-bell"></i> Admin Alert
+                </h5>
+                <button class="notification-close" onclick="document.getElementById('${notificationId}').remove()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="notification-body">
+                ${message}
+            </div>
+        `;
+        
+        notificationSystem.appendChild(notification);
+        
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            if (document.getElementById(notificationId)) {
+                document.getElementById(notificationId).remove();
+            }
+        }, 5000);
+    }
+
+    function returnToHomeWithReceipt() {
+        // Redirect to home page with receipt parameter
+        window.location.href = 'index.html#from-checkout';
+    }
+    </script>
+</body>
+</html>
